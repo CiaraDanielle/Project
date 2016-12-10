@@ -1,0 +1,9 @@
+﻿  Player.cpp
+i:\project\src\player.cpp(43): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+i:\project\src\player.cpp(44): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+i:\project\src\player.cpp(91): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+i:\project\src\player.cpp(92): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  Main.cpp
+  Generating Code...
+  3rdYearProject.vcxproj -> I:\Project\Debug\3rdYearProject.exe
+  3rdYearProject.vcxproj -> I:\Project\Debug\3rdYearProject.pdb (Partial PDB)
