@@ -1,0 +1,51 @@
+﻿  Button.cpp
+src\Button.cpp(5): warning C4129: 'B': unrecognized character escape sequence
+src\Button.cpp(74): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(76): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(80): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(84): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(86): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(88): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(90): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(94): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(96): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(103): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(142): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(146): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(150): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(154): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(162): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(166): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(171): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(175): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(183): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(188): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(196): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(200): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(211): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(215): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(223): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(231): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(235): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(240): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(244): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(252): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(257): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(265): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(269): warning C4305: 'argument': truncation from 'double' to 'float'
+  Menu.cpp
+src\Menu.cpp(11): warning C4129: 'P': unrecognized character escape sequence
+src\Menu.cpp(11): warning C4129: 'R': unrecognized character escape sequence
+src\Menu.cpp(15): warning C4129: 'P': unrecognized character escape sequence
+src\Menu.cpp(15): warning C4129: 'R': unrecognized character escape sequence
+src\Menu.cpp(15): warning C4129: 'm': unrecognized character escape sequence
+src\Menu.cpp(18): warning C4129: 'P': unrecognized character escape sequence
+src\Menu.cpp(18): warning C4129: 'R': unrecognized character escape sequence
+src\Menu.cpp(18): warning C4129: 'm': unrecognized character escape sequence
+  Generating code
+  4 of 156 functions ( 2.6%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    5 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  3rdYearProject.vcxproj -> I:\Project\Release\3rdYearProject.exe
+  3rdYearProject.vcxproj -> I:\Project\Release\3rdYearProject.pdb (Full PDB)

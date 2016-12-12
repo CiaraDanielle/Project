@@ -19,10 +19,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Button.cpp" />
     <ClCompile Include="src\Main.cpp" />
+    <ClCompile Include="src\Menu.cpp" />
     <ClCompile Include="src\Player.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Include\Button.h" />
+    <ClInclude Include="Include\GameState.h" />
+    <ClInclude Include="Include\Menu.h" />
     <ClInclude Include="Include\Player.h" />
   </ItemGroup>
   <ItemGroup>

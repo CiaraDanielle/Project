@@ -1,10 +1,9 @@
 #include "Player.h"
 
 
-
 Player::Player()
 {
-	if (!font.loadFromFile("Resource/arial.ttf"))
+	if (!font.loadFromFile("arial.ttf"))
 	{
 		std::string s("Error loading font");
 		throw std::exception(s.c_str());
@@ -30,7 +29,7 @@ Player::Player()
 	line.setPosition(0, linePosY);
 
 	text.setFont(font);
-//	text.setColor(sf::Color::Red);
+//	text.setFillColor(sf::Color::Red);
 	text.setCharacterSize(24);
 	text.setPosition(10, 10);
 }
