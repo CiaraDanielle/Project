@@ -1,0 +1,26 @@
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (Sepulcher of the Touhous.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  pugixml.cpp
+  main.cpp
+  QuadTreeNode.cpp
+  MapObject.cpp
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\mapobject.cpp(134): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\mapobject.cpp(253): warning C4267: 'initializing': conversion from 'size_t' to 'sf::Uint16', possible loss of data
+  MapLoaderPublic.cpp
+  MapLoaderPrivate.cpp
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\maploaderprivate.cpp(336): warning C4267: 'argument': conversion from 'size_t' to 'sf::Uint16', possible loss of data
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\maploaderprivate.cpp(382): warning C4267: 'argument': conversion from 'size_t' to 'sf::Uint16', possible loss of data
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\maploaderprivate.cpp(441): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\maploaderprivate.cpp(569): warning C4800: 'sf::Uint32': forcing value to bool 'true' or 'false' (performance warning)
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\maploaderprivate.cpp(570): warning C4800: 'sf::Uint32': forcing value to bool 'true' or 'false' (performance warning)
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\maploaderprivate.cpp(571): warning C4800: 'sf::Uint32': forcing value to bool 'true' or 'false' (performance warning)
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\maploaderprivate.cpp(1073): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\maploaderprivate.cpp(1276): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\maploaderprivate.cpp(1289): warning C4267: '=': conversion from 'size_t' to 'unsigned char', possible loss of data
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\maploaderprivate.cpp(1307): warning C4267: '=': conversion from 'size_t' to 'unsigned char', possible loss of data
+  MapLayer.cpp
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\maplayer.cpp(64): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\maplayer.cpp(79): warning C4267: 'initializing': conversion from 'size_t' to 'sf::Uint16', possible loss of data
+  DebugShape.cpp
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\debugshape.cpp(43): warning C4267: 'initializing': conversion from 'size_t' to 'sf::Uint16', possible loss of data
+  Generating Code...
+sfml-graphics-d.lib(sfml-graphics-d-2.dll) : fatal error LNK1112: module machine type 'X86' conflicts with target machine type 'x64'
