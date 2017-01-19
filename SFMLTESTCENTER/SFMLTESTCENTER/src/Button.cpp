@@ -103,11 +103,14 @@ void Button::setButtonSize(GameStates state) //sets the size of the buttons on s
 	}
 }
 
-void Button::draw(sf::RenderWindow &window) //draws buttons on screen
+void Button::draw(sf::RenderWindow &window, GameStates state) //draws buttons on screen
 {
-	for (int i = 0; i < 4; i++)
+	if (state != GameStates::Play)
 	{
-		window.draw(buttons[i]);
+		for (int i = 0; i < 4; i++)
+		{
+			window.draw(buttons[i]);
+		}
 	}
 }
 

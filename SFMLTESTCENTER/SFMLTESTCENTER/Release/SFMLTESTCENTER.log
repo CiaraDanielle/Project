@@ -1,17 +1,54 @@
-﻿  main.cpp
-src\main.cpp(21): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-src\main.cpp(31): warning C4244: '=': conversion from 'unsigned int' to 'float', possible loss of data
+﻿  Button.cpp
+src\Button.cpp(76): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(78): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(82): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(86): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(88): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(93): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(95): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(102): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(141): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(145): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(149): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(153): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(161): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(165): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(174): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(179): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(187): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(191): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(202): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(206): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(214): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(226): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(235): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(240): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(248): warning C4305: 'argument': truncation from 'double' to 'float'
+src\Button.cpp(252): warning C4305: 'argument': truncation from 'double' to 'float'
+  Menu.cpp
+  Player.cpp
+src\Player.cpp(14): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+src\Player.cpp(17): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+src\Player.cpp(28): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+src\Player.cpp(33): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+src\Player.cpp(50): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+src\Player.cpp(80): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+src\Player.cpp(97): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+src\Player.cpp(101): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+src\Player.cpp(158): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  main.cpp
+src\main.cpp(22): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
 src\main.cpp(32): warning C4244: '=': conversion from 'unsigned int' to 'float', possible loss of data
-src\main.cpp(35): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-src\main.cpp(53): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-src\main.cpp(68): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-src\main.cpp(72): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-src\main.cpp(76): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-src\main.cpp(121): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+src\main.cpp(33): warning C4244: '=': conversion from 'unsigned int' to 'float', possible loss of data
+src\main.cpp(36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+src\main.cpp(62): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+src\main.cpp(77): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+src\main.cpp(81): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+src\main.cpp(85): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
   Generating code
-  1 of 2713 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+  44 of 2715 functions ( 1.6%) were compiled, the rest were copied from previous compilation.
+    7 functions were new in current compilation
+    45 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   SFMLTESTCENTER.vcxproj -> C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\Release\3rdYearProject.exe
   SFMLTESTCENTER.vcxproj -> C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\Release\3rdYearProject.pdb (Full PDB)

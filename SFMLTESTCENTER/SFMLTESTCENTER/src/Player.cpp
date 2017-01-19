@@ -5,12 +5,12 @@
 Player::Player()
 {
 
-	optionOne.loadFromFile("player1.png");
-	optionTwo.loadFromFile("player2.png");
-	optionThree.loadFromFile("player3.png");
-	optionFour.loadFromFile("player4.png");
-	optionFive.loadFromFile("player5.png");
-	shape.setTexture(optionOne);
+	texture[0].loadFromFile("player1.png");
+	texture[1].loadFromFile("player2.png");
+	texture[2].loadFromFile("player3.png");
+	texture[3].loadFromFile("player4.png");
+	texture[4].loadFromFile("player5.png");
+	shape.setTexture(texture[0]);
 	shape.setPosition(sf::Vector2f(100, pos));
 	temp = sf::Vector2f(0, 45);
 	velocity = sf::Vector2f(0, 10);
@@ -81,6 +81,7 @@ void Player::Update(sf::RenderWindow *window)
 
 			actualTime += timeSinceLastUpdate.asSeconds();
 
+
 			while (actualHeight < Maxheight) {
 				actualHeight = Maxheight;
 			}
@@ -122,7 +123,6 @@ void Player::Draw(sf::RenderWindow *window, GameStates state)
 	}
 	else
 	{
-		window->clear();
 		window->draw(shape);
 	}
 }
@@ -136,7 +136,6 @@ float Player::X()
 {
 	return shape.getPosition().x;
 }
-
 float Player::Y()
 {
 	return shape.getPosition().y;
@@ -146,7 +145,10 @@ void Player::Pos(int x)
 {
 	pos = x; 
 }
-
+float Player::GetPos()
+{
+	return pos;
+}
 sf::Sprite Player::Rect()
 {
 	return shape;
@@ -172,24 +174,24 @@ void Player::SetText()
 {
 	if (textureCount == 0)
 	{
-		shape.setTexture(optionOne);
+		shape.setTexture(texture[0]);
 	}
 
 	if (textureCount == 1)
 	{
-		shape.setTexture(optionTwo);
+		shape.setTexture(texture[1]);
 	}
 	if (textureCount == 2)
 	{
-		shape.setTexture(optionThree);
+		shape.setTexture(texture[2]);
+	}
+	if (textureCount == 3)
+	{
+		shape.setTexture(texture[3]);
 	}
 	if (textureCount == 4)
 	{
-		shape.setTexture(optionFour);
-	}
-	if (textureCount == 5)
-	{
-		shape.setTexture(optionFive);
+		shape.setTexture(texture[4]);
 	}
 
 	if (textureCount <= -1)

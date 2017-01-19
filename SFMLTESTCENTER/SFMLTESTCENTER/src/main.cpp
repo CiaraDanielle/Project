@@ -5,7 +5,6 @@
 #include "Include\MapLoader.h"
 #include "Include\MapObject.h"
 
-
 using namespace std;
 float tileSizeY;
 float tileSizeX;
@@ -89,6 +88,7 @@ int main()
 							break;
 						}
 					}
+
 				}
 				break;
 			case sf::Event::Closed:
@@ -139,6 +139,34 @@ int main()
 					}
 				}
 			}
+
+			bool thirdCollision = false;
+			for (auto layer = ml.GetLayers().begin(); layer != ml.GetLayers().end(); ++layer)
+			{
+				if (layer->name == "Gravity")
+				{
+					for (auto object = layer->objects.begin(); object != layer->objects.end(); ++object)
+					{
+						const sf::FloatRect squareRect = object->GetAABB();
+						thirdCollision = squareRect.intersects(player.Rect().getGlobalBounds());
+						if (thirdCollision == true)
+						{
+							float y = squareRect.height;
+							if (player.X() < object->GetPosition().x + squareRect.width)
+							{
+ 								player.Pos(player.GetPos() - y);
+								std::cout << "JUMP!" << std::endl;
+								player.isMoving = false;
+							}
+						}
+						if (player.X() > object->GetPosition().x + squareRect.width)
+						{
+							player.Pos(720);
+							player.isMoving = true;
+						}
+					}
+				}
+			}
 		}
 		window->clear();
 		if (m_GameStates != GameStates::Play)
@@ -148,6 +176,8 @@ int main()
 		window->clear();
 		if (m_GameStates == GameStates::Play)
 		{
+			menu.ScrollBackGround(m_GameStates, *window);
+			menu.draw(*window, m_GameStates, player);
 			player.Draw(window,m_GameStates);
 			player.Update(window);
 			main.setCenter(player.X(), 400);

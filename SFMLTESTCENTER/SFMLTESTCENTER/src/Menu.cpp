@@ -5,21 +5,18 @@ Button thisButton(GameStates::MainMenu);
 
 Menu::Menu(float width, float height, GameStates state)
 {
-
+	sprite[1].setScale(sf::Vector2f(1.5, 1.5));
 
 	if (!buttonFont.loadFromFile("arial.ttf"))
 	{
 		////
 	}
-	MainTexture.loadFromFile("mainMenu.png");
-	mainBackground.setTexture(MainTexture);
-	MainTexture.loadFromFile("mainMenu.png");
+	MainTexture.loadFromFile("scrollbackground.png");
 	mainBackground.setTexture(MainTexture);
 	mainBackground.setPosition(sf::Vector2f(0, 0));
-	rollingTexture.loadFromFile("mainMenu2.png");
+	rollingTexture.loadFromFile("scrollbackground2.png");
 	rollingBack.setTexture(rollingTexture);
-	rollingBack.setPosition(800, 0);
-	rollingBack.setPosition(1495, 0);
+	rollingBack.setPosition(16000, 0);
 
 	if (state == GameStates::MainMenu) //main menu
 	{
@@ -172,13 +169,13 @@ void Menu::ScrollBackGround(GameStates state, sf::RenderWindow &window)
 		mainBackground.setPosition(sf::Vector2f(moveX, 0));
 		moveTwo = rollingBack.getPosition().x - 5.0f;
 		rollingBack.setPosition(sf::Vector2f(moveTwo, 0));
-		if (mainBackground.getPosition().x < -1495)
+		if (mainBackground.getPosition().x < -16000)
 		{
-			mainBackground.setPosition(sf::Vector2f(1495, 0));
+			mainBackground.setPosition(sf::Vector2f(16000, 0));
 		}
-		if (rollingBack.getPosition().x < -1495)
+		if (rollingBack.getPosition().x < -16000)
 		{
-			rollingBack.setPosition(sf::Vector2f(1495, 0));
+			rollingBack.setPosition(sf::Vector2f(16000, 0));
 		}
 		if (colorNum == 0)
 		{
@@ -222,13 +219,16 @@ void Menu::draw(sf::RenderWindow& window, GameStates state, Player &player) //dr
 	window.draw(mainBackground);
 	window.draw(rollingBack);
 
-	thisButton.draw(window);
-
-	for (int i = 0; i < MAX_NUMBER_OF_ITEMS; i++)
+	thisButton.draw(window, state);
+	if (state != GameStates::Play)
 	{
-		window.draw(buttonText[i]);
-	}
+		for (int i = 0; i < MAX_NUMBER_OF_ITEMS; i++)
+		{
+			window.draw(buttonText[i]);
+		}
 
+	}
+	
 	if (state == GameStates::Customise)
 	{
 		window.draw(mainBackground);
@@ -238,6 +238,10 @@ void Menu::draw(sf::RenderWindow& window, GameStates state, Player &player) //dr
 		for (int i = 0; i < 5; i++)
 		{
 			window.draw(colours[i]);
+		}
+		for (int i = 0; i < 5; i++)
+		{
+			window.draw(sprite[i]);
 		}
 	}
 }
@@ -574,6 +578,17 @@ void Menu::CustomizePlayer(GameStates state, sf::RenderWindow& window, sf::Event
 		colours[2].setFillColor(sf::Color::Cyan);
 		colours[3].setFillColor(sf::Color::Green);
 		colours[4].setFillColor(sf::Color::Yellow);
+		sprite[0].setPosition(300, 700);
+		sprite[1].setPosition(500, 700);
+		sprite[2].setPosition(700, 700);
+		sprite[3].setPosition(900, 700);
+		sprite[4].setPosition(1100,700);
+		sprite[0].setTexture(player.texture[0]);
+		sprite[1].setTexture(player.texture[1]);
+		sprite[2].setTexture(player.texture[2]);
+		sprite[3].setTexture(player.texture[3]);
+		sprite[4].setTexture(player.texture[4]);
+
 		for (int i = 0; i < 5; i++)
 		{
 			colours[i].setSize(sf::Vector2f(45, 45));
@@ -581,6 +596,8 @@ void Menu::CustomizePlayer(GameStates state, sf::RenderWindow& window, sf::Event
 		left = sf::Keyboard::isKeyPressed(sf::Keyboard::Left);
 		if (left && !leftPressed)
 		{
+			sprite[player.textureCount].setScale(sf::Vector2f(1.0, 1.0));
+			sprite[player.textureCount-1].setScale(sf::Vector2f(1.5,1.5));
 			player.textureCount -= 1;
 			leftPressed = left;
 		}
@@ -593,7 +610,9 @@ void Menu::CustomizePlayer(GameStates state, sf::RenderWindow& window, sf::Event
 		right = sf::Keyboard::isKeyPressed(sf::Keyboard::Right);
 		if (right && !rightPressed)
 		{
+			sprite[player.textureCount].setScale(sf::Vector2f(1.0, 1.0));
 			player.textureCount += 1;
+			sprite[player.textureCount].setScale(sf::Vector2f(1.5, 1.5));
 			rightPressed = right;
 		}
 
@@ -628,12 +647,15 @@ void Menu::CustomizePlayer(GameStates state, sf::RenderWindow& window, sf::Event
 			downPressed = false;
 		}
 
+		if (player.colourCount <= -1)
+		{
+			player.colourCount = 4;
+		}
 		if (player.colourCount <= 4)
 		{
 			colours[player.colourCount].setOutlineColor(sf::Color::Black);
 			colours[player.colourCount].setOutlineThickness(10);
 		}
-
 
 	}
 }

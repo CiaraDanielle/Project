@@ -38,6 +38,7 @@ private:
 	sf::Texture m_UITexture;
 	sf::Sprite m_UIHUD;
 	sf::RectangleShape colours[5];
+	sf::Sprite sprite[5];
 	sf::Texture MainTexture;
 	sf::Sprite mainBackground;
 	sf::Sprite rollingBack;

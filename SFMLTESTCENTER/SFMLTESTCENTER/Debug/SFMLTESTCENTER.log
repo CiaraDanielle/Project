@@ -1,12 +1,8 @@
 ﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (SFMLTESTCENTER.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  Menu.cpp
+  Generating Code...
+  Skipping... (no relevant changes detected)
   main.cpp
-c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\main.cpp(22): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\main.cpp(32): warning C4244: '=': conversion from 'unsigned int' to 'float', possible loss of data
-c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\main.cpp(33): warning C4244: '=': conversion from 'unsigned int' to 'float', possible loss of data
-c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\main.cpp(36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\main.cpp(62): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\main.cpp(77): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\main.cpp(81): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\main.cpp(85): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  Player.cpp
   SFMLTESTCENTER.vcxproj -> C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\Debug\3rdYearProject.exe
   SFMLTESTCENTER.vcxproj -> C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\Debug\3rdYearProject.pdb (Partial PDB)

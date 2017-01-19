@@ -9,6 +9,7 @@ public:
 	void KeyboardInput(sf::Event &event, sf::RenderWindow *window);
 	void Update(sf::RenderWindow *window);
 	void Draw(sf::RenderWindow *window, GameStates state);
+	float GetPos();
 	sf::Sprite Rect();
 	float X();
 	float Y();  
@@ -23,15 +24,11 @@ public:
 	void ColourCount(int x);
 	void SetText();
 	void SetColour(); 
-	sf::Texture optionOne;
-	sf::Texture optionTwo;
-	sf::Texture optionThree;
-	sf::Texture optionFour;
-	sf::Texture optionFive;
+	sf::Texture texture[5];
+	bool isMoving = false;
 
 private: 
 	float Maxheight = 0;
-	bool isMoving = false;
 	int force = 7;
 	//sf::RectangleShape shape;
 	float preHeight = 0;
@@ -55,7 +52,7 @@ private:
 	sf::Vector2f position;
 
 	sf::Vector2f unitVector;
-	float pixelToMeters = 70.0f;
+	float pixelToMeters = 100.0f;
 	sf::Vector2f gravity;
 
 	sf::RectangleShape line;

@@ -9,7 +9,7 @@ public:
 	~Button();
 	void setButtonSize(GameStates state);
 	void setButtonPositions(float width, float height, GameStates state);
-	void draw(sf::RenderWindow &window);
+	void draw(sf::RenderWindow &window, GameStates state);
 	void ButtonScaleUp(GameStates state);
 	void ButtonScaleDown(GameStates state);
 	void setButtonScaleUp(GameStates state);
