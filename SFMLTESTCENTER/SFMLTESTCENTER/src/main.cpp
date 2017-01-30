@@ -26,6 +26,7 @@ int main()
 	ml.Load("test.tmx");
 	const std::vector<tmx::MapLayer>& layers = ml.GetLayers();
 	sf::Vector2f tmp;
+	int count = 0; 
 
 	player.clock.restart();
 	tileSizeY = ml.GetTileSize().y;
@@ -98,7 +99,7 @@ int main()
 			}
 			if (m_GameStates == GameStates::Play)
 			{
-				player.KeyboardInput(event, window);
+				//player.KeyboardInput(event, window);
 			}
 		}
 		menu.CustomizePlayer(m_GameStates, *window,event, player);
@@ -130,11 +131,11 @@ int main()
 						const sf::FloatRect squareRect = object->GetAABB();
 						secondCollision = squareRect.intersects(player.Rect().getGlobalBounds());
 						if (secondCollision == true)
-						{
-							attempts++;
+						{							
 							cout << attempts << endl;
 							secondCollision = false;
 							player.Reset();
+							attempts++;
 						}
 					}
 				}
@@ -152,19 +153,24 @@ int main()
 						if (thirdCollision == true)
 						{
 							float y = squareRect.height;
+							player.GROUNDPOS = squareRect.top;
 							if (player.X() < object->GetPosition().x + squareRect.width)
 							{
- 								player.Pos(player.GetPos() - y);
-								std::cout << "JUMP!" << std::endl;
 								player.isMoving = false;
+								count = 0;
 							}
 						}
-						if (player.X() > object->GetPosition().x + squareRect.width)
+						if (thirdCollision != true && count == 0 && player.X() > object->GetPosition().x + squareRect.width)
 						{
-							player.Pos(720);
 							player.isMoving = true;
+ 							count = 1;
 						}
 					}
+				}
+
+				else if(player.GROUNDPOS < 720 && thirdCollision == false)
+				{
+					player.GROUNDPOS = 720;
 				}
 			}
 		}

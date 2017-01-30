@@ -6,7 +6,7 @@ class Player
 public:
 	Player();
 	~Player();
-	void KeyboardInput(sf::Event &event, sf::RenderWindow *window);
+	void KeyboardInput();
 	void Update(sf::RenderWindow *window);
 	void Draw(sf::RenderWindow *window, GameStates state);
 	float GetPos();
@@ -26,10 +26,11 @@ public:
 	void SetColour(); 
 	sf::Texture texture[5];
 	bool isMoving = false;
+	double GROUNDPOS = 720;
 
 private: 
 	float Maxheight = 0;
-	int force = 7;
+	float force = 7;
 	//sf::RectangleShape shape;
 	float preHeight = 0;
 	float preTime = 0;
@@ -43,8 +44,7 @@ private:
 	float linePosY = 720;
 	float linePosX = 200;
 	float timer = 0.0f;
-	bool isMovingX = false;
-	float friction = 2.0f;
+
 	sf::Vector2f acceleration;
 	sf::Vector2f temp;
 

@@ -31,7 +31,7 @@ public:
 private:
 
 	int m_numberOfButtons;
-	int m_selectedButtonIndex;
+	int m_selectedButtonIndex = 0;
 	sf::Font buttonFont;
 	sf::Text buttonText[MAX_NUMBER_OF_ITEMS];
 

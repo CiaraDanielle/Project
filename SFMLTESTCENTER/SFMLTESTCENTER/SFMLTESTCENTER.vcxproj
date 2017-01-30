@@ -157,6 +157,7 @@
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\pugixml.cpp" />
     <ClCompile Include="src\QuadTreeNode.cpp" />
+    <ClCompile Include="src\SoundManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\Button.h" />
@@ -172,6 +173,7 @@
     <ClInclude Include="Include\pugiconfig.hpp" />
     <ClInclude Include="Include\pugixml.hpp" />
     <ClInclude Include="Include\QuadTreeNode.h" />
+    <ClInclude Include="Include\SoundManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
