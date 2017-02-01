@@ -70,8 +70,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\SFMLTESTCENTER\Resource;C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\SFMLTESTCENTER\Include;C:\SFML-2.4.0\include;C:\ZLIB\include;C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\SFMLTESTCENTER;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\ZLIB\lib;C:\SFML-2.4.0\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\SFMLTESTCENTER;C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\SFMLTESTCENTER\Include;C:\SFML-2.4.0\include;C:\ZLIB\include;C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\SFMLTESTCENTER\Resource;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\gameuser\Desktop\3rdYearProjcet\ZLIB\lib;C:\Users\gameuser\Desktop\3rdYearProjcet\SFML-2.4.0\lib;$(LibraryPath)</LibraryPath>
     <SourcePath>C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\SFMLTESTCENTER\src;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -92,13 +92,13 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\SFMLTESTCENTER;C:\ZLIB\include;C:\SFML-2.4.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\SFMLTESTCENTER;C:\Users\gameuser\Desktop\3rdYearProjcet\ZLIB\include;C:\SFML-2.4.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <AdditionalUsingDirectories>%(AdditionalUsingDirectories)</AdditionalUsingDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>C:\SFML-2.4.0\lib;C:\ZLIB\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\gameuser\Desktop\3rdYearProjcet\SFML-2.4.0\lib;C:\Users\gameuser\Desktop\3rdYearProjcet\ZLIB\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-window-d.lib;sfml-system-d.lib;sfml-graphics-d.lib;zdll.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -174,6 +174,9 @@
     <ClInclude Include="Include\pugixml.hpp" />
     <ClInclude Include="Include\QuadTreeNode.h" />
     <ClInclude Include="Include\SoundManager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="DESIB___.TTF" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -8,9 +8,24 @@
 using namespace std;
 float tileSizeY;
 float tileSizeX;
-int attempts = 0; 
+int attempts = 1; 
 int moveAmount = 5; 
 int count = 0;
+int attemptMove = 0;
+
+//Timer Additions
+int remaining = 0;
+int counter = 300;
+sf::Clock timer;
+sf::Time elapsed;
+
+sf::String text;
+sf::Font font;
+sf::Text theText;
+
+
+sf::Text attemptText;
+sf::String attemptString;
 
 int main()
 {
@@ -31,6 +46,26 @@ int main()
 	player.clock.restart();
 	tileSizeY = ml.GetTileSize().y;
 	tileSizeX = ml.GetTileSize().x; 
+
+
+	if (!font.loadFromFile("DESIB___.TTF"))
+	{
+
+	}
+
+	text = to_string(counter) + ": Seconds";
+	int textX = 200;
+	theText.setCharacterSize(50);
+	theText.setFillColor(sf::Color::Yellow);
+	theText.setFont(font);
+	theText.setString(text);
+
+	attemptString = to_string(attempts) + ": Attempts";
+	attemptText.setCharacterSize(50);
+	attemptText.setFillColor(sf::Color::White);
+	attemptText.setFont(font);
+	attemptText.setString(attemptString);
+
 	while (window->isOpen())
 	{
 		main.move(moveAmount, 0);
@@ -99,6 +134,7 @@ int main()
 			}
 			if (m_GameStates == GameStates::Play)
 			{
+				
 				//player.KeyboardInput(event, window);
 			}
 		}
@@ -114,16 +150,19 @@ int main()
 					collision = triangleRect.intersects(player.Rect().getGlobalBounds());
 					if (collision == true)
 					{
+						player.Reset();
 						attempts++;
 						cout << attempts << endl; 
 						collision = false;
-						player.Reset();
+						
+
+						attemptString = "Attempt: " + to_string(attempts);
+						attemptText.setString(attemptString);
+						attemptText.setPosition(40, 40);
 					}				
 				}
 			}
 			bool secondCollision = false;
-			for (auto layer = ml.GetLayers().begin(); layer != ml.GetLayers().end(); ++layer)
-			{
 				if (layer->name == "Square Objects")
 				{
 					for (auto object = layer->objects.begin(); object != layer->objects.end(); ++object)
@@ -131,19 +170,20 @@ int main()
 						const sf::FloatRect squareRect = object->GetAABB();
 						secondCollision = squareRect.intersects(player.Rect().getGlobalBounds());
 						if (secondCollision == true)
-						{							
-							cout << attempts << endl;
-							secondCollision = false;
+						{		
 							player.Reset();
 							attempts++;
+							cout << attempts << endl;
+						    secondCollision = false;
+					
+
+							attemptString = "Attempt: " + to_string(attempts);
+							attemptText.setString(attemptString);
+							attemptText.setPosition(40, 40);
 						}
 					}
 				}
-			}
-
 			bool thirdCollision = false;
-			for (auto layer = ml.GetLayers().begin(); layer != ml.GetLayers().end(); ++layer)
-			{
 				if (layer->name == "Gravity")
 				{
 					for (auto object = layer->objects.begin(); object != layer->objects.end(); ++object)
@@ -166,9 +206,9 @@ int main()
  							count = 1;
 						}
 					}
-				}
+			
 
-				else if(player.GROUNDPOS < 720 && thirdCollision == false)
+				if(player.GROUNDPOS < 720 && thirdCollision == false)
 				{
 					player.GROUNDPOS = 720;
 				}
@@ -189,15 +229,48 @@ int main()
 			main.setCenter(player.X(), 400);
 			window->setView(main);
 			window->draw(ml);
+		
+			attemptString = "Attempt: " + to_string(attempts);
+
+			if (attemptMove < 100)
+			{
+				attemptMove++;
+				attemptText.setPosition(player.X() - 40, 40);
+				attemptText.setString(attemptString);
+			}
+			else if (attemptMove < 200)
+			{
+				attemptMove++;
+				attemptText.setPosition(500, 40);
+				attemptText.setString(attemptString);	
+			}
+			window->draw(attemptText);
+
+			//Countdown timer
+			elapsed = timer.getElapsedTime();  // start the timer
+			remaining = elapsed.asSeconds();
+			if (remaining >= 1)
+			{
+				counter = counter - remaining;  // counter is time remaining, remaining is at max 1
+				text = to_string(counter / 59) + ": Minutes";
+				timer.restart();
+			}
+			textX = player.X() + 330;
+			theText.setPosition(textX, 40);
+			theText.setString(text);
+			window->draw(theText);
+			if (counter <= 0)
+			{
+				//gameover
+				cout << "Dead" << endl;
+				m_GameStates == GameStates::GameLose;
+			}
 		}
 		if (m_GameStates != GameStates::Play)
 		{
 			menu.draw(*window, m_GameStates,player);
 		}
 		window->display();
-
-
-
 	}
 
 	return 0;
