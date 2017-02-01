@@ -1,25 +1,22 @@
 ﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (SFMLTESTCENTER.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  SoundManager.cpp
-  QuadTreeNode.cpp
-c:\users\gameuser\desktop\3rdyearprojcet - copy\sfmltestcenter\sfmltestcenter\src\quadtreenode.cpp(33): fatal error C1083: Cannot open include file: 'QuadTreeNode.h': No such file or directory
-  pugixml.cpp
-c:\users\gameuser\desktop\3rdyearprojcet - copy\sfmltestcenter\sfmltestcenter\src\pugixml.cpp(17): fatal error C1083: Cannot open include file: 'pugixml.hpp': No such file or directory
-  Player.cpp
-c:\users\gameuser\desktop\3rdyearprojcet - copy\sfmltestcenter\sfmltestcenter\src\player.cpp(1): fatal error C1083: Cannot open include file: 'Player.h': No such file or directory
-  Menu.cpp
-c:\users\gameuser\desktop\3rdyearprojcet - copy\sfmltestcenter\sfmltestcenter\src\menu.cpp(1): fatal error C1083: Cannot open include file: 'Include\Menu.h': No such file or directory
-  MapObject.cpp
-c:\users\gameuser\desktop\3rdyearprojcet - copy\sfmltestcenter\sfmltestcenter\src\mapobject.cpp(29): fatal error C1083: Cannot open include file: 'MapObject.h': No such file or directory
-  MapLoaderPublic.cpp
-c:\users\gameuser\desktop\3rdyearprojcet - copy\sfmltestcenter\sfmltestcenter\src\maploaderpublic.cpp(30): fatal error C1083: Cannot open include file: 'MapLoader.h': No such file or directory
-  MapLoaderPrivate.cpp
-c:\users\gameuser\desktop\3rdyearprojcet - copy\sfmltestcenter\sfmltestcenter\src\maploaderprivate.cpp(30): fatal error C1083: Cannot open include file: 'MapLoader.h': No such file or directory
-  MapLayer.cpp
-c:\users\gameuser\desktop\3rdyearprojcet - copy\sfmltestcenter\sfmltestcenter\src\maplayer.cpp(30): fatal error C1083: Cannot open include file: 'MapLayer.h': No such file or directory
   main.cpp
-c:\users\gameuser\desktop\3rdyearprojcet - copy\sfmltestcenter\sfmltestcenter\src\main.cpp(2): fatal error C1083: Cannot open include file: 'Player.h': No such file or directory
-  DebugShape.cpp
-c:\users\gameuser\desktop\3rdyearprojcet - copy\sfmltestcenter\sfmltestcenter\src\debugshape.cpp(30): fatal error C1083: Cannot open include file: 'DebugShape.h': No such file or directory
-  Button.cpp
-c:\users\gameuser\desktop\3rdyearprojcet - copy\sfmltestcenter\sfmltestcenter\src\button.cpp(1): fatal error C1083: Cannot open include file: 'Include\Button.h': No such file or directory
-  Generating Code...
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\main.cpp(21): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\main.cpp(32): warning C4244: '=': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\main.cpp(33): warning C4244: '=': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\main.cpp(36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\main.cpp(62): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\main.cpp(77): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\main.cpp(81): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\main.cpp(85): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+QuadTreeNode.obj : warning LNK4099: PDB 'vc140.pdb' was not found with 'QuadTreeNode.obj' or at 'C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\Debug\vc140.pdb'; linking object as if no debug info
+pugixml.obj : warning LNK4099: PDB 'vc140.pdb' was not found with 'pugixml.obj' or at 'C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\Debug\vc140.pdb'; linking object as if no debug info
+Player.obj : warning LNK4099: PDB 'vc140.pdb' was not found with 'Player.obj' or at 'C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\Debug\vc140.pdb'; linking object as if no debug info
+Menu.obj : warning LNK4099: PDB 'vc140.pdb' was not found with 'Menu.obj' or at 'C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\Debug\vc140.pdb'; linking object as if no debug info
+MapObject.obj : warning LNK4099: PDB 'vc140.pdb' was not found with 'MapObject.obj' or at 'C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\Debug\vc140.pdb'; linking object as if no debug info
+MapLoaderPublic.obj : warning LNK4099: PDB 'vc140.pdb' was not found with 'MapLoaderPublic.obj' or at 'C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\Debug\vc140.pdb'; linking object as if no debug info
+MapLoaderPrivate.obj : warning LNK4099: PDB 'vc140.pdb' was not found with 'MapLoaderPrivate.obj' or at 'C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\Debug\vc140.pdb'; linking object as if no debug info
+MapLayer.obj : warning LNK4099: PDB 'vc140.pdb' was not found with 'MapLayer.obj' or at 'C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\Debug\vc140.pdb'; linking object as if no debug info
+DebugShape.obj : warning LNK4099: PDB 'vc140.pdb' was not found with 'DebugShape.obj' or at 'C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\Debug\vc140.pdb'; linking object as if no debug info
+Button.obj : warning LNK4099: PDB 'vc140.pdb' was not found with 'Button.obj' or at 'C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\Debug\vc140.pdb'; linking object as if no debug info
+  SFMLTESTCENTER.vcxproj -> C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\Debug\3rdYearProject.exe
+  SFMLTESTCENTER.vcxproj -> C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\Debug\3rdYearProject.pdb (Partial PDB)
