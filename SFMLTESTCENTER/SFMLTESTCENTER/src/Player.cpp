@@ -11,16 +11,15 @@ Player::Player()
 	texture[3].loadFromFile("player4.png");
 	texture[4].loadFromFile("player5.png");
 	shape.setTexture(texture[0]);
-	shape.setPosition(sf::Vector2f(100, pos));
 	temp = sf::Vector2f(0, 45);
 	velocity = sf::Vector2f(0, 10);
-	position = sf::Vector2f(100, pos);
-	unitVector = sf::Vector2f(0.0f, 0.0f);
+	position = sf::Vector2f(800, pos);
 	gravity= sf::Vector2f(0.0f, 9.8f * pixelToMeters);
+	shape.setPosition(position);
 
 }
 
-void Player::KeyboardInput(sf::Event &event, sf::RenderWindow *window)
+void Player::KeyboardInput()
 {
 
 
@@ -31,7 +30,7 @@ void Player::KeyboardInput(sf::Event &event, sf::RenderWindow *window)
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::R)) {
 		position.y = pos;
-		position.x = 200;
+		position.x = 800;
 		velocity.x = 0;
 		velocity.y = 0;
 		actualDistance = 0;
@@ -41,14 +40,13 @@ void Player::KeyboardInput(sf::Event &event, sf::RenderWindow *window)
 		distance = 0;
 		isMoving = false;
 		angle = 50;
-		force = 7;
 	}
 }
 
 void Player::Reset()
 {
 	position.y = pos;
-	position.x = 200;
+	position.x = 800;
 	velocity.x = 0;
 	velocity.y = 0;
 	actualDistance = 0;
@@ -58,11 +56,12 @@ void Player::Reset()
 	distance = 0;
 	isMoving = false;
 	angle = 50;
-	force = 7;
 }
 
 void Player::Update(sf::RenderWindow *window)
 {
+
+	KeyboardInput();
 	Maxheight = linePosY - position.y;
 	//s = s0 + u*t + 0.5*a*t2.
 	distance = position.x - linePosX;
