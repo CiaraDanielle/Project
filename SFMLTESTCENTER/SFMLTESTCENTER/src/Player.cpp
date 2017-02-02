@@ -11,11 +11,11 @@ Player::Player()
 	texture[3].loadFromFile("player4.png");
 	texture[4].loadFromFile("player5.png");
 	shape.setTexture(texture[0]);
+	shape.setPosition(sf::Vector2f(100, pos));
 	temp = sf::Vector2f(0, 45);
 	velocity = sf::Vector2f(0, 10);
-	position = sf::Vector2f(800, pos);
+	position = sf::Vector2f(100, pos);
 	gravity= sf::Vector2f(0.0f, 9.8f * pixelToMeters);
-	shape.setPosition(position);
 
 }
 
@@ -30,7 +30,7 @@ void Player::KeyboardInput()
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::R)) {
 		position.y = pos;
-		position.x = 800;
+		position.x = 200;
 		velocity.x = 0;
 		velocity.y = 0;
 		actualDistance = 0;
@@ -46,7 +46,7 @@ void Player::KeyboardInput()
 void Player::Reset()
 {
 	position.y = pos;
-	position.x = 800;
+	position.x = 200;
 	velocity.x = 0;
 	velocity.y = 0;
 	actualDistance = 0;

@@ -54,6 +54,9 @@
     <ClCompile Include="src\Player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\SoundManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\DebugShape.h">
@@ -95,5 +98,13 @@
     <ClInclude Include="Include\Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Include\SoundManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="DESIB___.TTF">
+      <Filter>Resource Files</Filter>
+    </Font>
   </ItemGroup>
 </Project>

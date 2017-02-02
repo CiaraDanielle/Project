@@ -1,22 +1,17 @@
 ﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (SFMLTESTCENTER.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   main.cpp
-c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\main.cpp(21): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\main.cpp(32): warning C4244: '=': conversion from 'unsigned int' to 'float', possible loss of data
-c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\main.cpp(33): warning C4244: '=': conversion from 'unsigned int' to 'float', possible loss of data
-c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\main.cpp(36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\main.cpp(62): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\main.cpp(77): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\main.cpp(81): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\main.cpp(85): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-QuadTreeNode.obj : warning LNK4099: PDB 'vc140.pdb' was not found with 'QuadTreeNode.obj' or at 'C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\Debug\vc140.pdb'; linking object as if no debug info
-pugixml.obj : warning LNK4099: PDB 'vc140.pdb' was not found with 'pugixml.obj' or at 'C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\Debug\vc140.pdb'; linking object as if no debug info
-Player.obj : warning LNK4099: PDB 'vc140.pdb' was not found with 'Player.obj' or at 'C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\Debug\vc140.pdb'; linking object as if no debug info
-Menu.obj : warning LNK4099: PDB 'vc140.pdb' was not found with 'Menu.obj' or at 'C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\Debug\vc140.pdb'; linking object as if no debug info
-MapObject.obj : warning LNK4099: PDB 'vc140.pdb' was not found with 'MapObject.obj' or at 'C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\Debug\vc140.pdb'; linking object as if no debug info
-MapLoaderPublic.obj : warning LNK4099: PDB 'vc140.pdb' was not found with 'MapLoaderPublic.obj' or at 'C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\Debug\vc140.pdb'; linking object as if no debug info
-MapLoaderPrivate.obj : warning LNK4099: PDB 'vc140.pdb' was not found with 'MapLoaderPrivate.obj' or at 'C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\Debug\vc140.pdb'; linking object as if no debug info
-MapLayer.obj : warning LNK4099: PDB 'vc140.pdb' was not found with 'MapLayer.obj' or at 'C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\Debug\vc140.pdb'; linking object as if no debug info
-DebugShape.obj : warning LNK4099: PDB 'vc140.pdb' was not found with 'DebugShape.obj' or at 'C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\Debug\vc140.pdb'; linking object as if no debug info
-Button.obj : warning LNK4099: PDB 'vc140.pdb' was not found with 'Button.obj' or at 'C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\Debug\vc140.pdb'; linking object as if no debug info
-  SFMLTESTCENTER.vcxproj -> C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\Debug\3rdYearProject.exe
-  SFMLTESTCENTER.vcxproj -> C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\Debug\3rdYearProject.pdb (Partial PDB)
+c:\users\gameuser\desktop\projectgithub\project\project\sfmltestcenter\sfmltestcenter\src\main.cpp(43): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\gameuser\desktop\projectgithub\project\project\sfmltestcenter\sfmltestcenter\src\main.cpp(54): warning C4244: '=': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\gameuser\desktop\projectgithub\project\project\sfmltestcenter\sfmltestcenter\src\main.cpp(55): warning C4244: '=': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\gameuser\desktop\projectgithub\project\project\sfmltestcenter\sfmltestcenter\src\main.cpp(92): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\gameuser\desktop\projectgithub\project\project\sfmltestcenter\sfmltestcenter\src\main.cpp(125): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\gameuser\desktop\projectgithub\project\project\sfmltestcenter\sfmltestcenter\src\main.cpp(134): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\gameuser\desktop\projectgithub\project\project\sfmltestcenter\sfmltestcenter\src\main.cpp(138): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\gameuser\desktop\projectgithub\project\project\sfmltestcenter\sfmltestcenter\src\main.cpp(142): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\gameuser\desktop\projectgithub\project\project\sfmltestcenter\sfmltestcenter\src\main.cpp(252): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\gameuser\desktop\projectgithub\project\project\sfmltestcenter\sfmltestcenter\src\main.cpp(279): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\gameuser\desktop\projectgithub\project\project\sfmltestcenter\sfmltestcenter\src\main.cpp(328): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\gameuser\desktop\projectgithub\project\project\sfmltestcenter\sfmltestcenter\src\main.cpp(329): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\gameuser\desktop\projectgithub\project\project\sfmltestcenter\sfmltestcenter\src\main.cpp(335): warning C4553: '==': operator has no effect; did you intend '='?
+  SFMLTESTCENTER.vcxproj -> C:\Users\gameuser\Desktop\ProjectGitHub\Project\Project\SFMLTESTCENTER\Debug\3rdYearProject.exe
+  SFMLTESTCENTER.vcxproj -> C:\Users\gameuser\Desktop\ProjectGitHub\Project\Project\SFMLTESTCENTER\Debug\3rdYearProject.pdb (Partial PDB)

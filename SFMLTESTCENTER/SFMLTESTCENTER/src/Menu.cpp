@@ -210,6 +210,10 @@ void Menu::ScrollBackGround(GameStates state, sf::RenderWindow &window)
 		colorNum++;
 }
 
+//void Menu::CustomizePlayer(GameStates state, sf::Event &event)
+//{
+//	if(state == GameStates::Customise && sf::Event)
+//}
 void Menu::draw(sf::RenderWindow& window, GameStates state, Player &player) //draw method
 {
 
