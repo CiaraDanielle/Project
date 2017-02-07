@@ -27,31 +27,22 @@ public:
 	sf::Texture texture[5];
 	bool isMoving = false;
 	double GROUNDPOS = 720;
+	bool switchGravity = false;
 
 private: 
 	float Maxheight = 0;
 	float force = 7;
-	//sf::RectangleShape shape;
-	float preHeight = 0;
-	float preTime = 0;
 	float actualTime = 0;
 	float actualHeight = 0;
 	float actualDistance = 0;
-	float preDistance = 0;
-	float preTimeX = 0;
-	float actualTimeX = 0;
-	sf::String heightString;
 	float linePosY = 720;
 	float linePosX = 200;
-	float timer = 0.0f;
 
 	sf::Vector2f acceleration;
-	sf::Vector2f temp;
 
 	sf::Vector2f velocity;
 	sf::Vector2f position;
 
-	sf::Vector2f unitVector;
 	float pixelToMeters = 100.0f;
 	sf::Vector2f gravity;
 
@@ -65,5 +56,6 @@ private:
 	const sf::Time timePerFrame = sf::seconds(1.0f / 60.0f);
 	sf::Time timeSinceLastUpdate = sf::Time::Zero;
 	sf::Sprite shape;
+
 };
 

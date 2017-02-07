@@ -11,11 +11,10 @@ Player::Player()
 	texture[3].loadFromFile("player4.png");
 	texture[4].loadFromFile("player5.png");
 	shape.setTexture(texture[0]);
-	shape.setPosition(sf::Vector2f(100, pos));
-	temp = sf::Vector2f(0, 45);
 	velocity = sf::Vector2f(0, 10);
-	position = sf::Vector2f(100, pos);
+	position = sf::Vector2f(200, pos);
 	gravity= sf::Vector2f(0.0f, 9.8f * pixelToMeters);
+	shape.setPosition(position);
 
 }
 
@@ -23,8 +22,14 @@ void Player::KeyboardInput()
 {
 
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && isMoving == false) {
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && isMoving == false && switchGravity == false) {
 		velocity.y = (force * (sinf(angle*0.0175)) * pixelToMeters);
+ 		isMoving = true;
+		actualTime = 0;
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && isMoving == false && switchGravity == true) {
+		velocity.y = -(force * (sinf(angle*0.0175)) * pixelToMeters);
 		isMoving = true;
 		actualTime = 0;
 	}
@@ -37,9 +42,9 @@ void Player::KeyboardInput()
 		actualHeight = 0;
 		actualTime = 0;
 		Maxheight = 0;
-		distance = 0;
 		isMoving = false;
 		angle = 50;
+		switchGravity = false;
 	}
 }
 
@@ -53,14 +58,23 @@ void Player::Reset()
 	actualHeight = 0;
 	actualTime = 0;
 	Maxheight = 0;
-	distance = 0;
 	isMoving = false;
 	angle = 50;
+	switchGravity = false;
 }
 
 void Player::Update(sf::RenderWindow *window)
 {
-
+	if (switchGravity == true)
+	{
+		gravity = sf::Vector2f(0.0f, -9.8f * pixelToMeters);
+		shape.setRotation(180);
+	}
+	else if (switchGravity == false)
+	{
+		gravity = sf::Vector2f(0.0f, 9.8f * pixelToMeters);
+		shape.setRotation(0);
+	}
 	KeyboardInput();
 	Maxheight = linePosY - position.y;
 	//s = s0 + u*t + 0.5*a*t2.
@@ -89,7 +103,7 @@ void Player::Update(sf::RenderWindow *window)
 
 			}
 		}
-
+		
 		if (position.y > pos && isMoving == true)
 		{
 			if (velocity.y < -5) {
