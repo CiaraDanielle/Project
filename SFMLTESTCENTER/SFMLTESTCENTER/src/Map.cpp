@@ -6,7 +6,6 @@ Map::Map() : m_ml(""), m_ml2(""), m_ml3("")
 {
 	m_ml.UpdateQuadTree(sf::FloatRect(0, 0, 1400, 800));
 	m_ml.Load("Level1.tmx");
-	m_level = LevelStates::Level1;
 }
 
 
@@ -15,70 +14,71 @@ Map::~Map()
 }
 
 
-void Map::Update(Player &player, GameStates &state)
+void Map::Update(Player &player, GameStates &state, LevelStates &level, AttemptsCount &count, CountDown &timer)
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::N)) {
-		m_level = LevelStates::Level3;
-		CheckState();
+		level = LevelStates::Level3;
+		CheckState(level);
 	}
+
 	const std::vector<tmx::MapLayer>& layers = m_ml.GetLayers();
 
 
-	if (m_level == LevelStates::Level1)
+	if (level == LevelStates::Level1)
 	{
-		CollisionCheckLevel1(player, state);
+		CollisionCheckLevel1(player, state, level, count, timer);
 	}
-	if (m_level == LevelStates::Level2)
+	if (level == LevelStates::Level2)
 	{
-		CollisionCheckLevel2(player, state);
+		CollisionCheckLevel2(player, state, level, count, timer);
 	}
 
-	if (m_level == LevelStates::Level3)
+	if (level == LevelStates::Level3)
 	{
-		CollisionCheckLevel3(player, state);
+		CollisionCheckLevel3(player, state, level, count, timer);
 	}
 }
 
-void Map::CheckState()
+void Map::CheckState(LevelStates &state)
 {
-	if (m_level == LevelStates::Level1)
+	if (state == LevelStates::Level1)
 	{
 		m_ml.Load("Level1.tmx");
 	}
 
-	if (m_level == LevelStates::Level2)
+	if (state == LevelStates::Level2)
 	{
 		m_ml2.Load("Level2.tmx");
 	}
-	if (m_level == LevelStates::Level3)
+	if (state == LevelStates::Level3)
 	{
 		m_ml3.Load("Level3.tmx");
 	}
 }
 
-void Map::Draw(sf::RenderWindow &window)
+void Map::Draw(sf::RenderWindow &window, LevelStates &level)
 {
-	if (m_level == LevelStates::Level1)
+	if (level == LevelStates::Level1)
 	{
 		window.draw(m_ml);
 	}
-	if (m_level == LevelStates::Level2)
+	if (level == LevelStates::Level2)
 	{
 		window.draw(m_ml2);
 	}
-	if (m_level == LevelStates::Level3)
+	if (level == LevelStates::Level3)
 	{
 		window.draw(m_ml3);
 	}
 }
 
-void Map::CollisionCheckLevel1(Player &player, GameStates &state)
+void Map::CollisionCheckLevel1(Player &player, GameStates &state, LevelStates &level, AttemptsCount &attemptCount, CountDown &timer)
 {
 	int count = 0;
 	bool collision = false;
 	for (auto layer = m_ml.GetLayers().begin(); layer != m_ml.GetLayers().end(); ++layer)
 	{
-		if (m_level == LevelStates::Level2)
+		if (level == LevelStates::Level2)
 		{
 			break;
 		}
@@ -90,8 +90,10 @@ void Map::CollisionCheckLevel1(Player &player, GameStates &state)
 				collision = triangleRect.intersects(player.Rect().getGlobalBounds());
 				if (collision == true)
 				{
-					collision = false;
 					player.Reset();
+					attemptCount.attempts++;
+					collision = false;
+					attemptCount.collision();
 				}
 			}
 		}
@@ -104,8 +106,10 @@ void Map::CollisionCheckLevel1(Player &player, GameStates &state)
 				secondCollision = squareRect.intersects(player.Rect().getGlobalBounds());
 				if (secondCollision == true)
 				{
-					secondCollision = false;
 					player.Reset();
+					attemptCount.attempts++;//
+					secondCollision = false;
+					attemptCount.collision();//
 				}
 			}
 		}
@@ -121,8 +125,9 @@ void Map::CollisionCheckLevel1(Player &player, GameStates &state)
 				{
 					player.Reset();
 					fourthCollision = false;
-					m_level = LevelStates::Level2;
-					CheckState();
+					level = LevelStates::Level2;
+					CheckState(level);
+					timer.Reset();
 				}
 			}
 		}
@@ -132,7 +137,7 @@ void Map::CollisionCheckLevel1(Player &player, GameStates &state)
 	bool thirdCollision = false;
 	for (auto layer = m_ml.GetLayers().begin(); layer != m_ml.GetLayers().end(); ++layer)
 	{
-		if (m_level == LevelStates::Level2)
+		if (level == LevelStates::Level2)
 		{
 			break;
 		}
@@ -164,7 +169,7 @@ void Map::CollisionCheckLevel1(Player &player, GameStates &state)
 	}
 }
 
-void Map::CollisionCheckLevel2(Player &player, GameStates &state)
+void Map::CollisionCheckLevel2(Player &player, GameStates &state, LevelStates &level, AttemptsCount &attemptCount, CountDown &timer)
 {
 	int count = 0;
 	bool collision = false;
@@ -178,8 +183,10 @@ void Map::CollisionCheckLevel2(Player &player, GameStates &state)
 				collision = triangleRect.intersects(player.Rect().getGlobalBounds());
 				if (collision == true)
 				{
-					collision = false;
 					player.Reset();
+					attemptCount.attempts++;
+					collision = false;
+					attemptCount.collision();
 				}
 			}
 		}
@@ -192,8 +199,10 @@ void Map::CollisionCheckLevel2(Player &player, GameStates &state)
 				secondCollision = squareRect.intersects(player.Rect().getGlobalBounds());
 				if (secondCollision == true)
 				{
-					secondCollision = false;
 					player.Reset();
+					attemptCount.attempts++;//
+					secondCollision = false;
+					attemptCount.collision();//
 				}
 			}
 		}
@@ -209,8 +218,9 @@ void Map::CollisionCheckLevel2(Player &player, GameStates &state)
 				{
 					player.Reset();
 					fourthCollision = false;
-					m_level = LevelStates::Level3;
-					CheckState();
+					level = LevelStates::Level3;
+					CheckState(level);
+					timer.Reset();
 				}
 			}
 		}
@@ -246,7 +256,7 @@ void Map::CollisionCheckLevel2(Player &player, GameStates &state)
 	}
 }
 
-void Map::CollisionCheckLevel3(Player &player, GameStates &state)
+void Map::CollisionCheckLevel3(Player &player, GameStates &state, LevelStates &level, AttemptsCount &attemptCount, CountDown &timer)
 {
 	int count = 0;
 	bool collision = false;
@@ -260,8 +270,10 @@ void Map::CollisionCheckLevel3(Player &player, GameStates &state)
 				collision = triangleRect.intersects(player.Rect().getGlobalBounds());
 				if (collision == true)
 				{
-					collision = false;
 					player.Reset();
+					attemptCount.attempts++;
+					collision = false;
+					attemptCount.collision();
 				}
 			}
 		}
@@ -274,8 +286,10 @@ void Map::CollisionCheckLevel3(Player &player, GameStates &state)
 				secondCollision = squareRect.intersects(player.Rect().getGlobalBounds());
 				if (secondCollision == true)
 				{
-					secondCollision = false;
 					player.Reset();
+					attemptCount.attempts++;//
+					secondCollision = false;
+					attemptCount.collision();//
 				}
 			}
 		}

@@ -6,7 +6,11 @@
 #include "Include\MapObject.h"
 #include "Include\Map.h"
 #include "Include\ParticleSystem.h"
-
+#include "Include\AttemptsCount.h"
+#include "Include\Boost.h"
+#include "Include\CountDown.h"
+#include "Include\GameOver.h"
+#include "Include\Controller.h"
 using namespace std;
 float tileSizeY;
 float tileSizeX;
@@ -19,6 +23,10 @@ int main()
 {	
 	sf::RenderWindow* window = new sf::RenderWindow(sf::VideoMode(1500, 800), "Project I");
 	Player player;
+	Boost boost;  
+	CountDown countDown;
+	AttemptsCount attemptsCount;
+	LevelStates level = LevelStates::Level1;
 	GameStates m_GameStates = GameStates::MainMenu;
 	Menu menu(window->getSize().x, window->getSize().y, m_GameStates);
 	window->setFramerateLimit(60); 
@@ -27,6 +35,8 @@ int main()
 	ParticleSystem particles(500);
 	sf::Clock clock;
 	sf::Clock menuClock;
+	GameOver gameOver;
+	Controller controller;
 
 	player.clock.restart();
 
@@ -54,8 +64,23 @@ int main()
 					break;
 				case sf::Keyboard::Right:
 					menu.CustomizePlayer(m_GameStates,*window,event,player);
+					if (m_GameStates == GameStates::Play && level != LevelStates::Level1)
+					{
+						boost.CanBoost();
+					}
 					break;
-
+				case sf::Keyboard::Num1:
+					level = LevelStates::Level1;
+					m.CheckState(level);
+					break;
+				case sf::Keyboard::Num2:
+					level = LevelStates::Level2;
+					m.CheckState(level);
+					break;
+				case sf::Keyboard::Num3:
+					level = LevelStates::Level3;
+					m.CheckState(level);
+					break;
 				case sf::Keyboard::BackSpace:
 					m_GameStates = GameStates::MainMenu;
 					menu.CheckMenuState(window->getSize().x, window->getSize().y, m_GameStates);
@@ -88,14 +113,6 @@ int main()
 							break;
 						}
 					}
-					if (m_GameStates == GameStates::GameWin)
-					{
-						switch (menu.getPressedItem())
-						{
-						case 0:
-							m_GameStates = GameStates::Play;
-						}
-					}
 				}
 				break;
 			case sf::Event::Closed:
@@ -104,8 +121,11 @@ int main()
 
 			}
 		}
+
 		menu.CustomizePlayer(m_GameStates, *window,event, player);
-		m.Update(player, m_GameStates);
+		m.Update(player, m_GameStates, level, attemptsCount, countDown);
+		gameOver.Update(m_GameStates, attemptsCount);
+		controller.Update(m_GameStates, menu, *window, player,boost,level);
 		sf::Vector2i playerPos;
 		if (player.switchGravity == false)
 		{
@@ -131,22 +151,34 @@ int main()
 			window->draw(particles);
 			player.Draw(window,m_GameStates);
 			player.Update(window);
+			boost.Update(player, moveAmount);
+			countDown.Update(player, m_GameStates);
 			main.setCenter(player.X(), 400);
 			window->setView(main);
-			m.Draw(*window);
+			m.Draw(*window, level);
+			if (level != LevelStates::Level1)
+			{
+				boost.Draw(*window, m_GameStates);
+			}
+			countDown.Draw(*window, m_GameStates);//
+			attemptsCount.draw(*window, m_GameStates);//
+		}
+
+		if (m_GameStates != GameStates::Play)
+		{
+			window->setView(sf::View(sf::Vector2f(700,400),sf::Vector2f(1400,800)));
 		}
 		if (m_GameStates != GameStates::Play)
 		{
 			menu.draw(*window, m_GameStates,player);
 		}
-		if (m_GameStates == GameStates::GameWin)
+		if (m_GameStates == GameStates::GameLose || m_GameStates == GameStates::GameWin)
 		{
-			menu.draw(*window, GameStates::MainMenu, player);
+			window->setView(sf::View(sf::Vector2f(1400, 400), sf::Vector2f(1400, 800)));
+			gameOver.Draw(*window);
 		}
-		if (m_GameStates == GameStates::GameWin)
-		{
-			menu.draw(*window, GameStates::MainMenu, player);
-		}
+
+
 		window->display();
 
 

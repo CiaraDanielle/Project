@@ -146,8 +146,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\AttemptsCount.cpp" />
+    <ClCompile Include="src\Boost.cpp" />
     <ClCompile Include="src\Button.cpp" />
+    <ClCompile Include="src\Controller.cpp" />
+    <ClCompile Include="src\CountDown.cpp" />
     <ClCompile Include="src\DebugShape.cpp" />
+    <ClCompile Include="src\GameOver.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Map.cpp" />
     <ClCompile Include="src\MapLayer.cpp" />
@@ -161,8 +166,13 @@
     <ClCompile Include="src\SoundManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Include\AttemptsCount.h" />
+    <ClInclude Include="Include\Boost.h" />
     <ClInclude Include="Include\Button.h" />
+    <ClInclude Include="Include\Controller.h" />
+    <ClInclude Include="Include\CountDown.h" />
     <ClInclude Include="Include\DebugShape.h" />
+    <ClInclude Include="Include\GameOver.h" />
     <ClInclude Include="Include\GameState.h" />
     <ClInclude Include="Include\Helpers.h" />
     <ClInclude Include="Include\LevelState.h" />

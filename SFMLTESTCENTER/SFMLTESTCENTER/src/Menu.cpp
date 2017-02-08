@@ -7,7 +7,7 @@ Menu::Menu(float width, float height, GameStates state)
 {
 	sprite[1].setScale(sf::Vector2f(1.5, 1.5));
 
-	if (!buttonFont.loadFromFile("arial.ttf"))
+	if (!buttonFont.loadFromFile("DESIB___.TTF"))
 	{
 	
 	}
@@ -155,6 +155,8 @@ Menu::Menu(float width, float height, GameStates state)
 		thisButton.setButtonSize(state);
 
 	}
+
+
 	thisButton.m_selectedButtonIndex = 0;
 	m_selectedButtonIndex = 0;
 	buttonText[m_selectedButtonIndex].setFillColor(sf::Color::Yellow);
@@ -249,6 +251,19 @@ void Menu::CheckMenuState(float width, float height, GameStates state) //checks 
 {
 	thisButton.setButtonSize(state);
 	m_selectedButtonIndex = 0;
+
+	if (state == GameStates::GameWin)
+	{
+		buttonText[0].setPosition(sf::Vector2f(-2000, -2000));
+		buttonText[1].setPosition(sf::Vector2f(-2000, -2000));
+		buttonText[2].setPosition(sf::Vector2f(-2000, -2000));
+		buttonText[3].setPosition(sf::Vector2f(-2000, -2000));
+		buttonText[4].setPosition(sf::Vector2f(-2000, -2000));
+		buttonText[5].setPosition(sf::Vector2f(-2000, -2000));
+
+		thisButton.setButtonPositions(-2000, -2000, state);
+		thisButton.setButtonSize(state);
+		}
 
 	if (state == GameStates::MainMenu) //main menu
 	{
@@ -604,6 +619,20 @@ void Menu::CustomizePlayer(GameStates state, sf::RenderWindow& window, sf::Event
 			leftPressed = false;
 		}
 
+		dPadLeft = sf::Joystick::getAxisPosition(0, sf::Joystick::PovX) < -m_val;
+		if (dPadLeft && !dPadleftPress)
+		{
+			sprite[player.textureCount].setScale(sf::Vector2f(1.0, 1.0));
+			sprite[player.textureCount - 1].setScale(sf::Vector2f(1.5, 1.5));
+			player.textureCount -= 1;
+			dPadleftPress = dPadLeft;
+		}
+
+		if (!dPadLeft && dPadleftPress)
+		{
+			dPadleftPress = false;
+		}
+
 		right = sf::Keyboard::isKeyPressed(sf::Keyboard::Right);
 		if (right && !rightPressed)
 		{
@@ -616,6 +645,20 @@ void Menu::CustomizePlayer(GameStates state, sf::RenderWindow& window, sf::Event
 		if (!right && rightPressed)
 		{
 			rightPressed = false;
+		}
+
+		dPadRight = sf::Joystick::getAxisPosition(0, sf::Joystick::PovX) < m_val;
+		if (dPadRight && !dPadRightPress)
+		{
+			sprite[player.textureCount].setScale(sf::Vector2f(1.0, 1.0));
+			player.textureCount += 1;
+			sprite[player.textureCount].setScale(sf::Vector2f(1.5, 1.5));
+			dPadRightPress = dPadRight;
+		}
+
+		if (!dPadRight && dPadRightPress)
+		{
+			dPadRightPress = false;
 		}
 
 		up = sf::Keyboard::isKeyPressed(sf::Keyboard::Up);
@@ -643,7 +686,31 @@ void Menu::CustomizePlayer(GameStates state, sf::RenderWindow& window, sf::Event
 		{
 			downPressed = false;
 		}
+		dPadDown = sf::Joystick::getAxisPosition(0, sf::Joystick::PovY) < -m_val;
+		if (dPadDown && !dPadDownPress)
+		{
+			colours[player.colourCount].setOutlineThickness(0);
+			player.colourCount += 1;
+			dPadDownPress = dPadDown;
+		}
 
+		if (!dPadDown && dPadDownPress)
+		{
+			dPadDownPress = false;
+		}
+
+		dPadUp = sf::Joystick::getAxisPosition(0, sf::Joystick::PovY) < m_val;
+		if (dPadUp && !dPadUpPress)
+		{
+			colours[player.colourCount].setOutlineThickness(0);
+			player.colourCount -= 1;
+			dPadUpPress = dPadUp;
+		}
+
+		if (!dPadUp && dPadUpPress)
+		{
+			dPadUpPress = false;
+		}
 		if (player.colourCount <= -1)
 		{
 			player.colourCount = 4;

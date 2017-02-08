@@ -54,5 +54,30 @@ private:
 	bool upPressed = false; 
 	bool down = false;
 	bool downPressed = false;
+	/// Getting the axis for left on the DPad 
+	bool dPadLeft = sf::Joystick::getAxisPosition(0, sf::Joystick::PovX) < -m_val;
+
+	/// Boolean to know when left has been pressed 
+	bool dPadleftPress = false;
+
+	/// Getting the axis for Up on the DPad 
+	bool dPadUp = sf::Joystick::getAxisPosition(0, sf::Joystick::PovY)  < -m_val;
+
+	/// Boolean to know when Up has been pressed 
+	bool dPadUpPress = false;
+
+	/// Getting the axis for right on the DPad 
+	bool dPadRight = sf::Joystick::getAxisPosition(0, sf::Joystick::PovX) < m_val;
+
+	/// Boolean to know when right has been pressed 
+	bool dPadRightPress = false;
+
+	/// Getting the axis for Down on the DPad 
+	bool dPadDown = sf::Joystick::getAxisPosition(0, sf::Joystick::PovY) < m_val;
+
+	/// Boolean to know when down has been pressed 
+	bool dPadDownPress = false;
+
+	const int m_val = 80;
 };
 

@@ -23,15 +23,11 @@ void Player::KeyboardInput()
 
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && isMoving == false && switchGravity == false) {
-		velocity.y = (force * (sinf(angle*0.0175)) * pixelToMeters);
- 		isMoving = true;
-		actualTime = 0;
+		Jump();
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && isMoving == false && switchGravity == true) {
-		velocity.y = -(force * (sinf(angle*0.0175)) * pixelToMeters);
-		isMoving = true;
-		actualTime = 0;
+		GravityJump();
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::R)) {
 		position.y = pos;
@@ -48,6 +44,19 @@ void Player::KeyboardInput()
 	}
 }
 
+void Player::Jump()
+{
+	velocity.y = (force * (sinf(angle*0.0175)) * pixelToMeters);
+	isMoving = true;
+	actualTime = 0;
+}
+
+void Player::GravityJump()
+{
+	velocity.y = -(force * (sinf(angle*0.0175)) * pixelToMeters);
+	isMoving = true;
+	actualTime = 0;
+}
 void Player::Reset()
 {
 	position.y = pos;

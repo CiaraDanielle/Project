@@ -9,6 +9,8 @@ public:
 	void KeyboardInput();
 	void Update(sf::RenderWindow *window);
 	void Draw(sf::RenderWindow *window, GameStates state);
+	void Jump();
+	void GravityJump();
 	float GetPos();
 	sf::Sprite Rect();
 	float X();

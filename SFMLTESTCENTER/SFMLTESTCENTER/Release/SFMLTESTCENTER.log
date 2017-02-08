@@ -1,8 +1,11 @@
-﻿  Map.cpp
+﻿  Controller.cpp
+src\Controller.cpp(144): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+src\Controller.cpp(148): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+src\Controller.cpp(186): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
   Generating code
-  3 of 2776 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
+  4 of 2818 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    25 functions had inline decision re-evaluated but remain unchanged
+    50 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   SFMLTESTCENTER.vcxproj -> C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\Release\3rdYearProject.exe
   SFMLTESTCENTER.vcxproj -> C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\Release\3rdYearProject.pdb (Full PDB)
