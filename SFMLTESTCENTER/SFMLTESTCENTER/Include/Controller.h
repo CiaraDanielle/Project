@@ -5,6 +5,7 @@
 #include "GameState.h"
 #include "Boost.h"
 #include "LevelState.h"
+#include "Sound.h"
 
 class Controller
 {
@@ -21,18 +22,18 @@ public:
 	////////////////////////////////////////////////////////////
 	/// \brief Moving the DPad on the controller left 
 	///
-	/// \param Gamestate to know which screen, GameOptions so you can 
+	/// \param Gamestate to know which screen, Sound so you can 
 	/// move through it as well as Sound Manager and Menu 
 	////////////////////////////////////////////////////////////
-	void DPadMoveLeft(GameStates state, Menu& start);
+	void DPadMoveLeft(GameStates state, Menu& start, Sound &sound);
 
 	////////////////////////////////////////////////////////////
 	/// \brief Moving the DPad on the controller Right 
 	///
-	/// \param Gamestate to know which screen, GameOptions so you can 
+	/// \param Gamestate to know which screen, Sound so you can 
 	/// move through it as well as Sound Manager and Menu 
 	////////////////////////////////////////////////////////////
-	void DPadMoveRight(GameStates state, Menu& start);
+	void DPadMoveRight(GameStates state, Menu& start, Sound &sound);
 
 	////////////////////////////////////////////////////////////
 	/// \brief Moving the DPad on the controller up
@@ -40,7 +41,7 @@ public:
 	/// \param Gamestate to know which screen, Menu to be able 
 	/// to scroll through it 
 	////////////////////////////////////////////////////////////
-	void DPadMoveUp(GameStates &state, Menu& start);
+	void DPadMoveUp(GameStates &state, Menu& start, Sound &sound);
 
 
 	////////////////////////////////////////////////////////////
@@ -49,13 +50,13 @@ public:
 	/// \param Gamestate to know which screen, Menu to be able 
 	/// to scroll through it 
 	////////////////////////////////////////////////////////////
-	void DPadMoveDown(GameStates &state, Menu& start);
+	void DPadMoveDown(GameStates &state, Menu& start, Sound &sound);
 
-	void APressed(GameStates& state, Player &player, Menu& start, sf::RenderWindow& window);
+	void APressed(GameStates& state, Player &player, Menu& start, sf::RenderWindow& window, Sound &sound, LevelStates &level);
 
-	void BPressed(GameStates& state, Menu& start, sf::RenderWindow& window);
+	void BPressed(GameStates& state, Menu& start, sf::RenderWindow& window, Sound &sound);
 
-	void Update(GameStates& state, Menu& start, sf::RenderWindow &window, Player &player, Boost &boost, LevelStates &level);
+	void Update(GameStates& state, Menu& start, sf::RenderWindow &window, Player &player, Boost &boost, LevelStates &level, Sound &sound);
 
 	void StartPressed(GameStates& state, Boost &boost, LevelStates &level);
 private:

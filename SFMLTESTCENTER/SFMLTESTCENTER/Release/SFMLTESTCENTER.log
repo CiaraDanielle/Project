@@ -1,11 +1,22 @@
-﻿  Controller.cpp
-src\Controller.cpp(144): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-src\Controller.cpp(148): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-src\Controller.cpp(186): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+﻿  CountDown.cpp
+src\CountDown.cpp(23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+src\CountDown.cpp(46): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+src\CountDown.cpp(47): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  GameOver.cpp
+  Map.cpp
+  main.cpp
+src\main.cpp(33): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+src\main.cpp(47): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+src\main.cpp(110): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+src\main.cpp(125): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+src\main.cpp(143): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+src\main.cpp(148): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+src\main.cpp(172): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+src\main.cpp(176): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   Generating code
-  4 of 2818 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
+  5 of 2838 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    50 functions had inline decision re-evaluated but remain unchanged
+    40 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   SFMLTESTCENTER.vcxproj -> C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\Release\3rdYearProject.exe
   SFMLTESTCENTER.vcxproj -> C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\Release\3rdYearProject.pdb (Full PDB)

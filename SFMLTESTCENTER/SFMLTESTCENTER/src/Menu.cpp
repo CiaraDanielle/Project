@@ -1,5 +1,6 @@
 #include "Include\Menu.h"
 #include "Include\Button.h"
+#include <iostream>
 
 Button thisButton(GameStates::MainMenu);
 
@@ -13,10 +14,10 @@ Menu::Menu(float width, float height, GameStates state)
 	}
 	MainTexture.loadFromFile("scrollbackground.png");
 	mainBackground.setTexture(MainTexture);
-	mainBackground.setPosition(sf::Vector2f(-300, 0));
+	mainBackground.setPosition(sf::Vector2f(0, 0));
 	rollingTexture.loadFromFile("scrollbackground2.png");
 	rollingBack.setTexture(rollingTexture);
-	rollingBack.setPosition(15500, 0);
+	rollingBack.setPosition(16000, 0);
 
 	if (state == GameStates::MainMenu) //main menu
 	{
@@ -88,39 +89,6 @@ Menu::Menu(float width, float height, GameStates state)
 
 
 	}
-	else if (state == GameStates::GameOptions) //Game options
-	{
-
-		buttonText[0].setFont(buttonFont);
-		buttonText[0].setString("Difficulty");
-		buttonText[0].setPosition(sf::Vector2f(width / 2 - 250, height / 4 * 1 + 50));
-
-
-		buttonText[1].setFont(buttonFont);
-		buttonText[1].setString("Number of Waves");
-		buttonText[1].setPosition(sf::Vector2f((width / 2 - 290), height / 4 * 2 + 70));
-
-		buttonText[2].setFont(buttonFont);
-		buttonText[2].setString("");
-		buttonText[2].setPosition(sf::Vector2f((width / 2 - 25), height / 4 * 3 - 180));
-
-		buttonText[3].setFont(buttonFont);
-		buttonText[3].setString("Medium"); //will change due to difficulty controller later
-		buttonText[3].setPosition(sf::Vector2f(width / 2 + 150, height / 4 * 1 + 50));
-
-
-		buttonText[4].setFont(buttonFont);
-		buttonText[4].setString("10"); //will need change due to difficulty controller
-		buttonText[4].setPosition(sf::Vector2f((width / 2 + 190), height / 4 * 2 + 70));
-
-		buttonText[5].setFont(buttonFont);
-		buttonText[5].setString(""); //will need change due to sound controller
-		buttonText[5].setPosition(sf::Vector2f(width / 2 + 150, height / 4 * 3 - 180));
-
-		//set what position the buttons will be depending on the game state
-		thisButton.setButtonPositions(width, height, state);
-		thisButton.setButtonSize(state);
-	}
 	else if (state == GameStates::Pause) //pause menu
 	{
 		buttonText[0].setFont(buttonFont);
@@ -168,17 +136,18 @@ Menu::~Menu()
 
 void Menu::ScrollBackGround(GameStates state, sf::RenderWindow &window)
 {
-		moveX = mainBackground.getPosition().x - 5.0f;
+		moveX = mainBackground.getPosition().x - speed;
 		mainBackground.setPosition(sf::Vector2f(moveX, 0));
-		moveTwo = rollingBack.getPosition().x - 5.0f;
+		moveTwo = rollingBack.getPosition().x - speed;
 		rollingBack.setPosition(sf::Vector2f(moveTwo, 0));
-		if (mainBackground.getPosition().x < -15500)
+		if (mainBackground.getPosition().x <= -15000)
 		{
-			mainBackground.setPosition(sf::Vector2f(15500, 0));
+			std::cout << mainBackground.getPosition().x << std::endl;
+			mainBackground.setPosition(sf::Vector2f(15000, 0));
 		}
-		if (rollingBack.getPosition().x < -15500)
+		if (rollingBack.getPosition().x <= -15000)
 		{
-			rollingBack.setPosition(sf::Vector2f(15500, 0));
+			rollingBack.setPosition(sf::Vector2f(15000, 0));
 		}
 		if (colorNum == 0)
 		{
@@ -225,7 +194,7 @@ void Menu::draw(sf::RenderWindow& window, GameStates state, Player &player) //dr
 		{
 			window.draw(buttonText[i]);
 		}
-
+		speed = 5.0f;
 	}
 	
 	if (state == GameStates::Customise)
@@ -242,6 +211,11 @@ void Menu::draw(sf::RenderWindow& window, GameStates state, Player &player) //dr
 		{
 			window.draw(sprite[i]);
 		}
+	}
+
+	if (state == GameStates::GameLose)
+	{
+		window.draw(rollingBack);
 	}
 }
 
@@ -353,7 +327,7 @@ void Menu::CheckMenuState(float width, float height, GameStates state) //checks 
 
 
 	}
-	else if (state == GameStates::GameOptions) //Game options
+	else if (state == GameStates::Sound) //Game options
 	{
 		m_selectedButtonIndex = 0;
 		thisButton.m_selectedButtonIndex = 0;
@@ -369,24 +343,32 @@ void Menu::CheckMenuState(float width, float height, GameStates state) //checks 
 		buttonText[1].setString("Music");
 		buttonText[1].setCharacterSize(30);
 		buttonText[1].setFillColor(sf::Color::White);
-		buttonText[1].setPosition(sf::Vector2f((width / 2 - 290), height / 4 * 2 + 70));
+		buttonText[1].setPosition(sf::Vector2f((width / 2 - 270), height / 4 * 2 + 70));
 
 		buttonText[2].setFont(buttonFont);
 		buttonText[2].setString("OFF");
-		buttonText[2].setPosition(sf::Vector2f((width / 2 + 250), height / 4 * 3 - 355));
+		buttonText[2].setCharacterSize(30);
+		buttonText[2].setPosition(sf::Vector2f((width / 2 + 250), height / 4 * 3 - 350));
+		buttonText[2].setFillColor(sf::Color::White);
 
 		buttonText[3].setFont(buttonFont);
-		buttonText[3].setString("ON"); //will change due to difficulty controller later
+		buttonText[3].setString("ON"); 
+		buttonText[3].setCharacterSize(30);
 		buttonText[3].setPosition(sf::Vector2f(width / 2 + 150, height / 4 * 1 + 50));
+		buttonText[3].setFillColor(sf::Color::Yellow);
 
 
 		buttonText[4].setFont(buttonFont);
-		buttonText[4].setString("ON"); //will need change due to difficulty controller
+		buttonText[4].setString("ON"); 
+		buttonText[4].setCharacterSize(30);
 		buttonText[4].setPosition(sf::Vector2f((width / 2 + 150), height / 4 * 2 + 70));
+		buttonText[4].setFillColor(sf::Color::Yellow);
 
 		buttonText[5].setFont(buttonFont);
-		buttonText[5].setString("OFF"); //will need change due to sound controller
-		buttonText[5].setPosition(sf::Vector2f(width / 2 + 250, height / 4 * 3 + 150));
+		buttonText[5].setString("OFF"); 
+		buttonText[5].setCharacterSize(30);
+		buttonText[5].setPosition(sf::Vector2f(width / 2 + 250, height / 4 * 3 - 130));
+		buttonText[5].setFillColor(sf::Color::White);
 
 		//set what position the buttons will be depending on the game state
 		thisButton.setButtonPositions(width, height, state);
@@ -434,7 +416,66 @@ void Menu::CheckMenuState(float width, float height, GameStates state) //checks 
 
 	}
 }
+void Menu::MoveLeft(GameStates &state, Sound &sound)
+{
+	leftpressed++;
+	if (state == GameStates::Sound)
+	{
+		if (m_selectedButtonIndex == 0)
+		{
+			buttonText[3].setFillColor(sf::Color::Yellow);
+			buttonText[2].setFillColor(sf::Color::White);
+			if (leftPressed == 0)
+			{
+				sound.muteMusic = false;
+				sound.PlayMenuBackGround();
+				rightpressed = -1;
+			}
+		}
+		if (m_selectedButtonIndex == 1)
+		{
+			buttonText[4].setFillColor(sf::Color::Yellow);
+			buttonText[5].setFillColor(sf::Color::White);
+			if (leftPressed == 0)
+			{
+				sound.muteSFX = false;
+				rightpressed = -1;
+			}
+		}
+		
+	}
+}
 
+void Menu::MoveRight(GameStates &state, Sound &sound)
+{
+	rightpressed++;
+	if (state == GameStates::Sound)
+	{
+		if (m_selectedButtonIndex == 0)
+		{ 
+			buttonText[3].setFillColor(sf::Color::White);
+			buttonText[2].setFillColor(sf::Color::Yellow);
+			if (rightpressed == 0)
+			{
+				sound.muteMusic = true;
+				sound.StopMenuBackGround();
+				rightpressed = -1;
+			}
+		}
+		if (m_selectedButtonIndex == 1)
+		{
+			
+			buttonText[4].setFillColor(sf::Color::White);
+			buttonText[5].setFillColor(sf::Color::Yellow);
+
+			if (rightpressed == 0)
+			{
+				sound.muteSFX = true;
+				rightpressed = -1;
+			}
+		}
+	}
+}
 void Menu::MoveUp(GameStates state)
 {
 	if (state == GameStates::MainMenu) //main menu
@@ -463,7 +504,7 @@ void Menu::MoveUp(GameStates state)
 		}
 	}
 
-	if (state == GameStates::GameOptions) //main menu
+	if (state == GameStates::Sound) //main menu
 	{
 		if (m_selectedButtonIndex - 1 >= 0)
 		{
@@ -518,7 +559,7 @@ void Menu::MoveDown(GameStates state) {
 		}
 	}
 
-	if (state == GameStates::GameOptions) //difficulty menu
+	if (state == GameStates::Sound) //difficulty menu
 	{
 		if (m_selectedButtonIndex + 1 < 2)
 		{
@@ -545,35 +586,6 @@ void Menu::MoveDown(GameStates state) {
 	}
 }
 
-void Menu::updateSoundOptions(bool &mute, int &volume)
-{
-	if (mute == true)
-	{
-		buttonText[3].setString("Off");
-	}
-	if (mute == false)
-	{
-		buttonText[3].setString("On");
-	}
-	buttonText[4].setString(std::to_string(volume));
-}
-
-void Menu::updateGameOptions(int lvl, int numberOfWaves)
-{
-	if (lvl == 1)
-	{
-		buttonText[3].setString("Easy");
-	}
-	if (lvl == 2)
-	{
-		buttonText[3].setString("Medium");
-	}
-	if (lvl == 3)
-	{
-		buttonText[3].setString("Hard");
-	}
-	buttonText[4].setString(std::to_string(numberOfWaves));
-}
 
 void Menu::CustomizePlayer(GameStates state, sf::RenderWindow& window, sf::Event event, Player &player)
 {

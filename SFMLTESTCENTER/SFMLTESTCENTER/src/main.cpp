@@ -11,6 +11,8 @@
 #include "Include\CountDown.h"
 #include "Include\GameOver.h"
 #include "Include\Controller.h"
+#include "Include\Sound.h"
+
 using namespace std;
 float tileSizeY;
 float tileSizeX;
@@ -37,7 +39,7 @@ int main()
 	sf::Clock menuClock;
 	GameOver gameOver;
 	Controller controller;
-
+	Sound sound;
 	player.clock.restart();
 
 	while (window->isOpen())
@@ -54,13 +56,17 @@ int main()
 				{
 				case sf::Keyboard::Up:
 					menu.MoveUp(m_GameStates);
+					sound.PlayMenuButton();
 					break;
 				case sf::Keyboard::Down:
 					menu.MoveDown(m_GameStates);
+					sound.PlayMenuButton();
 					break;
 
 				case sf::Keyboard::Left:
 					menu.CustomizePlayer(m_GameStates,*window,event,player);
+					menu.MoveLeft(m_GameStates, sound);
+					sound.PlayMenuButton();
 					break;
 				case sf::Keyboard::Right:
 					menu.CustomizePlayer(m_GameStates,*window,event,player);
@@ -68,29 +74,46 @@ int main()
 					{
 						boost.CanBoost();
 					}
+					sound.PlayMenuButton();
+					menu.MoveRight(m_GameStates, sound);
 					break;
 				case sf::Keyboard::Num1:
 					level = LevelStates::Level1;
 					m.CheckState(level);
+					sound.PlayLevel1Sound();
+					sound.StopLevel2Music();
+					sound.StopLevel3Music();
+					sound.StopMenuBackGround();
 					break;
 				case sf::Keyboard::Num2:
 					level = LevelStates::Level2;
 					m.CheckState(level);
+					sound.PlayLevel2Sound();
+					sound.StopLevel1Music();
+					sound.StopLevel3Music();
+					sound.StopMenuBackGround();
 					break;
 				case sf::Keyboard::Num3:
 					level = LevelStates::Level3;
 					m.CheckState(level);
+					sound.PlayLevel3Sound();
+					sound.StopLevel2Music();
+					sound.StopLevel1Music();
+					sound.StopMenuBackGround();
 					break;
-				case sf::Keyboard::BackSpace:
-					m_GameStates = GameStates::MainMenu;
-					menu.CheckMenuState(window->getSize().x, window->getSize().y, m_GameStates);
-					break;
-				case sf::Keyboard::B:
+				case sf::Keyboard::BackSpace:					
 					if (m_GameStates == GameStates::Play)
 					{
-						moveAmount = 10;
-						player.updateSpeed = 10.0f;
+						sound.PlayMenuBackGround();
 					}
+					m_GameStates = GameStates::MainMenu;
+					menu.CheckMenuState(window->getSize().x, window->getSize().y, m_GameStates);
+					sound.PlayMenuButton();
+					break;
+				case sf::Keyboard::Y:
+					sound.muteMusic = true;
+					sound.muteSFX = true; 
+					sound.StopMenuBackGround();
 				case sf::Keyboard::Return:
 					if (m_GameStates == GameStates::MainMenu)
 					{
@@ -98,15 +121,32 @@ int main()
 						{
 						case 0:
 							m_GameStates = GameStates::Play;
+							menu.speed = 2.5f;
 							menu.CheckMenuState(window->getSize().x, window->getSize().y, m_GameStates);
+							if (level == LevelStates::Level1)
+							{
+								sound.PlayLevel1Sound();
+							}
+							if (level == LevelStates::Level2)
+							{
+								sound.PlayLevel2Sound();
+							}
+							if (level == LevelStates::Level3)
+							{
+								sound.PlayLevel3Sound();
+							}
+							sound.PlayMenuClick();
+							sound.StopMenuBackGround();
 							break;
 						case 1:
 							m_GameStates = GameStates::Customise;
 							menu.CheckMenuState(window->getSize().x, window->getSize().y, m_GameStates);
+							sound.PlayMenuClick();
 							break;
 						case 2:
-							m_GameStates = GameStates::GameOptions;
+							m_GameStates = GameStates::Sound;
 							menu.CheckMenuState(window->getSize().x, window->getSize().y, m_GameStates);
+							sound.PlayMenuClick();
 							break;
 						case 3:
 							return EXIT_SUCCESS;
@@ -123,9 +163,9 @@ int main()
 		}
 
 		menu.CustomizePlayer(m_GameStates, *window,event, player);
-		m.Update(player, m_GameStates, level, attemptsCount, countDown);
+		m.Update(player, m_GameStates, level, attemptsCount, countDown,sound,gameOver);
 		gameOver.Update(m_GameStates, attemptsCount);
-		controller.Update(m_GameStates, menu, *window, player,boost,level);
+		controller.Update(m_GameStates, menu, *window, player,boost,level,sound);
 		sf::Vector2i playerPos;
 		if (player.switchGravity == false)
 		{
@@ -138,10 +178,13 @@ int main()
 		particles.setEmitter(window->mapPixelToCoords(playerPos));
 		sf::Time elapsed = clock.restart();
 		particles.update(elapsed);
-
 		if (m_GameStates != GameStates::Play)
 		{
 			menu.ScrollBackGround(m_GameStates, *window);
+			sound.StopLevel1Music();
+			sound.StopLevel2Music();
+			sound.StopLevel3Music();
+			countDown.Reset();
 		}
 		window->clear();
 		if (m_GameStates == GameStates::Play)
@@ -150,8 +193,8 @@ int main()
 			menu.draw(*window, m_GameStates, player);
 			window->draw(particles);
 			player.Draw(window,m_GameStates);
-			player.Update(window);
-			boost.Update(player, moveAmount);
+			player.Update(window,sound);
+			boost.Update(player, moveAmount, m_GameStates);
 			countDown.Update(player, m_GameStates);
 			main.setCenter(player.X(), 400);
 			window->setView(main);
@@ -175,6 +218,7 @@ int main()
 		if (m_GameStates == GameStates::GameLose || m_GameStates == GameStates::GameWin)
 		{
 			window->setView(sf::View(sf::Vector2f(1400, 400), sf::Vector2f(1400, 800)));
+			gameOver.scrollBackground(m_GameStates, *window);
 			gameOver.Draw(*window);
 		}
 

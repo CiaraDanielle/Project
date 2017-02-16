@@ -45,11 +45,11 @@ void Button::setButtonPositions(float width, float height, GameStates state) //s
 
 		buttons[3].setPosition(sf::Vector2f(-500, 0));
 	}
-	else if (state == GameStates::GameOptions) //difficulty options
+	else if (state == GameStates::Sound) //difficulty options
 	{
-		buttons[0].setPosition(sf::Vector2f(width / 2 - 270, height / 4 * 1 + 30));
+		buttons[0].setPosition(sf::Vector2f(width / 2 - 300, height / 4 * 1 + 30));
 
-		buttons[1].setPosition(sf::Vector2f(width / 2 - 320, height / 4 * 2 + 50));
+		buttons[1].setPosition(sf::Vector2f(width / 2 - 300, height / 4 * 2 + 50));
 
 		buttons[2].setPosition(sf::Vector2f(-500, 0));
 
@@ -88,11 +88,11 @@ void Button::setButtonSize(GameStates state) //sets the size of the buttons on s
 		buttons[1].setScale(0.4, 1);
 
 	}
-	else if (state == GameStates::GameOptions) //difficulty options
+	else if (state == GameStates::Sound) //sound options
 	{
-		buttons[0].setScale(0.5, 1.1);
+		buttons[0].setScale(1.1, 1.1);
 
-		buttons[1].setScale(0.78, 1);
+		buttons[1].setScale(0.5, 1);
 	}
 
 	else if (state == GameStates::Pause) //pause menu
@@ -170,16 +170,16 @@ void Button::setButtonScaleUp(GameStates state) //sets the scale sizes for each 
 
 	}
 
-	else if (state == GameStates::GameOptions) //difficulty options
+	else if (state == GameStates::Sound) //difficulty options
 	{
 		if (m_selectedButtonIndex == 0)
 		{
-			buttons[0].setScale(0.5, 1.1);
+			buttons[0].setScale(1.1, 1.1);
 		}
 
 		if (m_selectedButtonIndex == 1)
 		{
-			buttons[1].setScale(0.9, 1.1);
+			buttons[1].setScale(0.6, 1.1);
 		}
 	}
 
@@ -231,16 +231,16 @@ void Button::setButtonScaleDown(GameStates state) //sets the buttons back to the
 
 	}
 
-	else if (state == GameStates::GameOptions) //difficulty options
+	else if (state == GameStates::Sound) //difficulty options
 	{
 		if (m_selectedButtonIndex == 0)
 		{
-			buttons[0].setScale(0.45, 1);
+			buttons[0].setScale(0.9, 1);
 		}
 
 		if (m_selectedButtonIndex == 1)
 		{
-			buttons[1].setScale(0.78, 1);
+			buttons[1].setScale(0.4, 1);
 		}
 	}
 

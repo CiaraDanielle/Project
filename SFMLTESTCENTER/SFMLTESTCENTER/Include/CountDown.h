@@ -14,6 +14,7 @@ public:
 	void Reset();
 	int counter = 310;
 	int remaining = 0;
+	int GetTimer();
 
 private:
 	int textX = 200;

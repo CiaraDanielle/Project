@@ -1,6 +1,6 @@
 #include "Player.h"
 #include "Include\GameState.h"
-
+#include "Include\Sound.h"
 
 Player::Player()
 {
@@ -18,29 +18,21 @@ Player::Player()
 
 }
 
-void Player::KeyboardInput()
+void Player::KeyboardInput(Sound &sound)
 {
 
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && isMoving == false && switchGravity == false) {
 		Jump();
+		sound.PlayJump();
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && isMoving == false && switchGravity == true) {
 		GravityJump();
+		sound.PlayJump();
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::R)) {
-		position.y = pos;
-		position.x = 200;
-		velocity.x = 0;
-		velocity.y = 0;
-		actualDistance = 0;
-		actualHeight = 0;
-		actualTime = 0;
-		Maxheight = 0;
-		isMoving = false;
-		angle = 50;
-		switchGravity = false;
+		Reset();
 	}
 }
 
@@ -72,7 +64,7 @@ void Player::Reset()
 	switchGravity = false;
 }
 
-void Player::Update(sf::RenderWindow *window)
+void Player::Update(sf::RenderWindow *window, Sound &sound)
 {
 	if (switchGravity == true)
 	{
@@ -84,7 +76,7 @@ void Player::Update(sf::RenderWindow *window)
 		gravity = sf::Vector2f(0.0f, 9.8f * pixelToMeters);
 		shape.setRotation(0);
 	}
-	KeyboardInput();
+	KeyboardInput(sound);
 	Maxheight = linePosY - position.y;
 	//s = s0 + u*t + 0.5*a*t2.
 	distance = position.x - linePosX;

@@ -11,7 +11,7 @@ enum class GameStates
 	Credits,
 	GameWin,
 	Customise,
-	GameOptions,
+	Sound,
 	GameLose,
 	GameRestart
 };

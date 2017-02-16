@@ -79,7 +79,7 @@
     <LibraryPath>C:\Users\gameuser\Desktop\3rdYearProjcet\SFML-2.4.0\lib;C:\Users\gameuser\Desktop\3rdYearProjcet\ZLIB\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\SFMLTESTCENTER\Resource;C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\SFMLTESTCENTER\Include;C:\SFML-2.4.0\include;C:\ZLIB\include;C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\SFMLTESTCENTER;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\gameuser\Desktop\3rdYearProjcet\SFML-2.4.0\include\SFML\Audio;C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\SFMLTESTCENTER\Resource;C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\SFMLTESTCENTER\Include;C:\SFML-2.4.0\include;C:\ZLIB\include;C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\SFMLTESTCENTER;$(IncludePath)</IncludePath>
     <LibraryPath>C:\ZLIB\lib;C:\SFML-2.4.0\lib;$(LibraryPath)</LibraryPath>
     <SourcePath>C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\SFMLTESTCENTER\src;$(SourcePath)</SourcePath>
   </PropertyGroup>
@@ -128,7 +128,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>C:\SFML-2.4.0\lib;C:\ZLIB\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-window.lib;sfml-system.lib;sfml-graphics.lib;zdll.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>sfml-window.lib;sfml-system.lib;sfml-graphics.lib;sfml-audio.lib;zdll.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -163,7 +163,7 @@
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\pugixml.cpp" />
     <ClCompile Include="src\QuadTreeNode.cpp" />
-    <ClCompile Include="src\SoundManager.cpp" />
+    <ClCompile Include="src\Sound.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\AttemptsCount.h" />
@@ -187,7 +187,7 @@
     <ClInclude Include="Include\pugiconfig.hpp" />
     <ClInclude Include="Include\pugixml.hpp" />
     <ClInclude Include="Include\QuadTreeNode.h" />
-    <ClInclude Include="Include\SoundManager.h" />
+    <ClInclude Include="Include\Sound.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

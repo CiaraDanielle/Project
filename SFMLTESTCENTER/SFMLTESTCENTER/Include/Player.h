@@ -1,13 +1,14 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "GameState.h"
+#include "Sound.h"
 class Player
 {
 public:
 	Player();
 	~Player();
-	void KeyboardInput();
-	void Update(sf::RenderWindow *window);
+	void KeyboardInput(Sound &sound);
+	void Update(sf::RenderWindow *window, Sound &sound);
 	void Draw(sf::RenderWindow *window, GameStates state);
 	void Jump();
 	void GravityJump();
@@ -39,17 +40,12 @@ private:
 	float actualDistance = 0;
 	float linePosY = 720;
 	float linePosX = 200;
-
 	sf::Vector2f acceleration;
-
 	sf::Vector2f velocity;
 	sf::Vector2f position;
-
 	float pixelToMeters = 100.0f;
 	sf::Vector2f gravity;
-
-	sf::RectangleShape line;
-	
+	sf::RectangleShape line;	
 	int pos = 720;
 	float distance;
 	int angle = 50;

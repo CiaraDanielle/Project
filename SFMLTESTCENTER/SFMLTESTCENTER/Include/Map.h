@@ -7,6 +7,9 @@
 #include "LevelState.h"
 #include "AttemptsCount.h"
 #include "CountDown.h"
+#include "Sound.h"
+#include "GameOver.h"
+
 class Map
 {
 private:
@@ -20,10 +23,10 @@ public:
 	Map();
 	~Map();
 	void Draw(sf::RenderWindow &window, LevelStates &level);
-	void Update(Player &player, GameStates &level, LevelStates &state, AttemptsCount &count, CountDown &timer);
-	void CollisionCheckLevel1(Player &player, GameStates &state, LevelStates &level, AttemptsCount &count, CountDown &timer);
-	void CollisionCheckLevel2(Player &player, GameStates &state, LevelStates &level, AttemptsCount &count, CountDown &timer);
-	void CollisionCheckLevel3(Player &player, GameStates &state, LevelStates &level, AttemptsCount &count, CountDown &timer);
+	void Update(Player &player, GameStates &level, LevelStates &state, AttemptsCount &count, CountDown &timer, Sound &sound, GameOver &overText);
+	void CollisionCheckLevel1(Player &player, GameStates &state, LevelStates &level, AttemptsCount &count, CountDown &timer, Sound &sound, GameOver &overText);
+	void CollisionCheckLevel2(Player &player, GameStates &state, LevelStates &level, AttemptsCount &count, CountDown &timer, Sound &sound, GameOver &overText);
+	void CollisionCheckLevel3(Player &player, GameStates &state, LevelStates &level, AttemptsCount &count, CountDown &timer, Sound &sound, GameOver &overText);
 	void CheckState(LevelStates &level);
 };
 

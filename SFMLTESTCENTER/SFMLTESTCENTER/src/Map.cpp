@@ -14,28 +14,27 @@ Map::~Map()
 }
 
 
-void Map::Update(Player &player, GameStates &state, LevelStates &level, AttemptsCount &count, CountDown &timer)
+void Map::Update(Player &player, GameStates &state, LevelStates &level, AttemptsCount &count, CountDown &timer, Sound &sound, GameOver &overText)
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::N)) {
 		level = LevelStates::Level3;
 		CheckState(level);
 	}
-
 	const std::vector<tmx::MapLayer>& layers = m_ml.GetLayers();
 
 
 	if (level == LevelStates::Level1)
 	{
-		CollisionCheckLevel1(player, state, level, count, timer);
+		CollisionCheckLevel1(player, state, level, count, timer, sound, overText);
 	}
 	if (level == LevelStates::Level2)
 	{
-		CollisionCheckLevel2(player, state, level, count, timer);
+		CollisionCheckLevel2(player, state, level, count, timer, sound, overText);
 	}
 
 	if (level == LevelStates::Level3)
 	{
-		CollisionCheckLevel3(player, state, level, count, timer);
+		CollisionCheckLevel3(player, state, level, count, timer, sound, overText);
 	}
 }
 
@@ -72,7 +71,7 @@ void Map::Draw(sf::RenderWindow &window, LevelStates &level)
 	}
 }
 
-void Map::CollisionCheckLevel1(Player &player, GameStates &state, LevelStates &level, AttemptsCount &attemptCount, CountDown &timer)
+void Map::CollisionCheckLevel1(Player &player, GameStates &state, LevelStates &level, AttemptsCount &attemptCount, CountDown &timer, Sound &sound, GameOver &overText)
 {
 	int count = 0;
 	bool collision = false;
@@ -94,6 +93,7 @@ void Map::CollisionCheckLevel1(Player &player, GameStates &state, LevelStates &l
 					attemptCount.attempts++;
 					collision = false;
 					attemptCount.collision();
+					sound.PlayDeath();
 				}
 			}
 		}
@@ -110,6 +110,7 @@ void Map::CollisionCheckLevel1(Player &player, GameStates &state, LevelStates &l
 					attemptCount.attempts++;//
 					secondCollision = false;
 					attemptCount.collision();//
+					sound.PlayDeath();
 				}
 			}
 		}
@@ -123,11 +124,14 @@ void Map::CollisionCheckLevel1(Player &player, GameStates &state, LevelStates &l
 				fourthCollision = squareRect.intersects(player.Rect().getGlobalBounds());
 				if (fourthCollision == true)
 				{
+					timer.Reset();
 					player.Reset();
 					fourthCollision = false;
+					overText.OverAllTime(timer.GetTimer());
 					level = LevelStates::Level2;
 					CheckState(level);
-					timer.Reset();
+					sound.StopLevel1Music();
+					sound.PlayLevel2Sound();
 				}
 			}
 		}
@@ -169,7 +173,7 @@ void Map::CollisionCheckLevel1(Player &player, GameStates &state, LevelStates &l
 	}
 }
 
-void Map::CollisionCheckLevel2(Player &player, GameStates &state, LevelStates &level, AttemptsCount &attemptCount, CountDown &timer)
+void Map::CollisionCheckLevel2(Player &player, GameStates &state, LevelStates &level, AttemptsCount &attemptCount, CountDown &timer, Sound &sound, GameOver &overText)
 {
 	int count = 0;
 	bool collision = false;
@@ -187,6 +191,7 @@ void Map::CollisionCheckLevel2(Player &player, GameStates &state, LevelStates &l
 					attemptCount.attempts++;
 					collision = false;
 					attemptCount.collision();
+					sound.PlayDeath();
 				}
 			}
 		}
@@ -203,6 +208,7 @@ void Map::CollisionCheckLevel2(Player &player, GameStates &state, LevelStates &l
 					attemptCount.attempts++;//
 					secondCollision = false;
 					attemptCount.collision();//
+					sound.PlayDeath();
 				}
 			}
 		}
@@ -216,11 +222,14 @@ void Map::CollisionCheckLevel2(Player &player, GameStates &state, LevelStates &l
 				fourthCollision = squareRect.intersects(player.Rect().getGlobalBounds());
 				if (fourthCollision == true)
 				{
+					timer.Reset();
 					player.Reset();
 					fourthCollision = false;
+					overText.OverAllTime(timer.GetTimer());
 					level = LevelStates::Level3;
 					CheckState(level);
-					timer.Reset();
+					sound.StopLevel2Music();
+					sound.PlayLevel3Sound();
 				}
 			}
 		}
@@ -256,7 +265,7 @@ void Map::CollisionCheckLevel2(Player &player, GameStates &state, LevelStates &l
 	}
 }
 
-void Map::CollisionCheckLevel3(Player &player, GameStates &state, LevelStates &level, AttemptsCount &attemptCount, CountDown &timer)
+void Map::CollisionCheckLevel3(Player &player, GameStates &state, LevelStates &level, AttemptsCount &attemptCount, CountDown &timer, Sound &sound, GameOver &overText)
 {
 	int count = 0;
 	bool collision = false;
@@ -274,6 +283,7 @@ void Map::CollisionCheckLevel3(Player &player, GameStates &state, LevelStates &l
 					attemptCount.attempts++;
 					collision = false;
 					attemptCount.collision();
+					sound.PlayDeath();
 				}
 			}
 		}
@@ -290,6 +300,7 @@ void Map::CollisionCheckLevel3(Player &player, GameStates &state, LevelStates &l
 					attemptCount.attempts++;//
 					secondCollision = false;
 					attemptCount.collision();//
+					sound.PlayDeath();
 				}
 			}
 		}
@@ -303,6 +314,7 @@ void Map::CollisionCheckLevel3(Player &player, GameStates &state, LevelStates &l
 				fourthCollision = squareRect.intersects(player.Rect().getGlobalBounds());
 				if (fourthCollision == true)
 				{
+					overText.OverAllTime(timer.GetTimer());
 					state = GameStates::GameWin;
 				}
 			}

@@ -1,3 +1,75 @@
 ﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (SFMLTESTCENTER.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  SFMLTESTCENTER.vcxproj -> C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\Debug\3rdYearProject.exe
-  SFMLTESTCENTER.vcxproj -> C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\Debug\3rdYearProject.pdb (Partial PDB)
+  Sound.cpp
+  Player.cpp
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\player.cpp(15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\player.cpp(41): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\player.cpp(48): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\player.cpp(54): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\player.cpp(94): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\player.cpp(111): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\player.cpp(115): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\player.cpp(164): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\player.cpp(173): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Menu.cpp
+  Map.cpp
+  main.cpp
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\main.cpp(33): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\main.cpp(47): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\main.cpp(110): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\main.cpp(122): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\main.cpp(140): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\main.cpp(145): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\main.cpp(169): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\main.cpp(173): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  GameOver.cpp
+  CountDown.cpp
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\countdown.cpp(23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\countdown.cpp(46): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\countdown.cpp(47): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Controller.cpp
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\controller.cpp(161): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\controller.cpp(165): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\controller.cpp(210): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\controller.cpp(216): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  Button.cpp
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\button.cpp(76): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\button.cpp(78): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\button.cpp(82): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\button.cpp(86): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\button.cpp(88): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\button.cpp(93): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\button.cpp(102): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\button.cpp(144): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\button.cpp(148): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\button.cpp(152): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\button.cpp(156): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\button.cpp(164): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\button.cpp(168): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\button.cpp(177): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\button.cpp(182): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\button.cpp(190): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\button.cpp(194): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\button.cpp(205): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\button.cpp(209): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\button.cpp(217): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\button.cpp(229): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\button.cpp(238): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\button.cpp(243): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\button.cpp(251): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\button.cpp(255): warning C4305: 'argument': truncation from 'double' to 'float'
+  Boost.cpp
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\boost.cpp(24): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\gameuser\desktop\3rdyearprojcet\sfmltestcenter\sfmltestcenter\src\boost.cpp(34): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  AttemptsCount.cpp
+  Generating Code...
+Sound.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: void __thiscall sf::SoundSource::setVolume(float)" (__imp_?setVolume@SoundSource@sf@@QAEXM@Z) referenced in function "public: __thiscall Sound::Sound(void)" (??0Sound@@QAE@XZ)
+Sound.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: __thiscall sf::Sound::Sound(void)" (__imp_??0Sound@sf@@QAE@XZ) referenced in function "public: __thiscall Sound::Sound(void)" (??0Sound@@QAE@XZ)
+Sound.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: virtual __thiscall sf::Sound::~Sound(void)" (__imp_??1Sound@sf@@UAE@XZ) referenced in function __unwindfunclet$??0Sound@@QAE@XZ$8
+Sound.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: void __thiscall sf::Sound::play(void)" (__imp_?play@Sound@sf@@QAEXXZ) referenced in function "public: __thiscall Sound::Sound(void)" (??0Sound@@QAE@XZ)
+Sound.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: void __thiscall sf::Sound::pause(void)" (__imp_?pause@Sound@sf@@QAEXXZ) referenced in function "public: void __thiscall Sound::StopLevel1Music(void)" (?StopLevel1Music@Sound@@QAEXXZ)
+Sound.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: void __thiscall sf::Sound::setBuffer(class sf::SoundBuffer const &)" (__imp_?setBuffer@Sound@sf@@QAEXABVSoundBuffer@2@@Z) referenced in function "public: __thiscall Sound::Sound(void)" (??0Sound@@QAE@XZ)
+Sound.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: void __thiscall sf::Sound::setLoop(bool)" (__imp_?setLoop@Sound@sf@@QAEX_N@Z) referenced in function "public: void __thiscall Sound::PlayLevel1Sound(void)" (?PlayLevel1Sound@Sound@@QAEXXZ)
+Sound.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: __thiscall sf::SoundBuffer::SoundBuffer(void)" (__imp_??0SoundBuffer@sf@@QAE@XZ) referenced in function "public: __thiscall Sound::Sound(void)" (??0Sound@@QAE@XZ)
+Sound.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: __thiscall sf::SoundBuffer::~SoundBuffer(void)" (__imp_??1SoundBuffer@sf@@QAE@XZ) referenced in function __unwindfunclet$??0Sound@@QAE@XZ$0
+Sound.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: bool __thiscall sf::SoundBuffer::loadFromFile(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (__imp_?loadFromFile@SoundBuffer@sf@@QAE_NABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z) referenced in function "public: __thiscall Sound::Sound(void)" (??0Sound@@QAE@XZ)
+C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\Debug\3rdYearProject.exe : fatal error LNK1120: 10 unresolved externals

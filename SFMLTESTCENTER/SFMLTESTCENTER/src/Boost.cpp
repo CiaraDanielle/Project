@@ -9,7 +9,6 @@ Boost::Boost()
 
 	innerBoost.setSize(sf::Vector2f(10, 40));
 	innerBoost.setFillColor(sf::Color::Red);
-
 }
 
 
@@ -17,52 +16,54 @@ Boost::~Boost()
 {
 }
 
-void Boost::Update(Player &player, int &moveAmount)
+void Boost::Update(Player &player, int &moveAmount, GameStates &state)
 {
-
-	elapsed = timer.getElapsedTime();  // start the timer
-	remaining = elapsed.asSeconds();
-	boostBar.setPosition(player.X() - 40, 60);
-	innerBoost.setPosition(player.X() - 40, 40);
+	if (state == GameStates::Play)
+	{
+		elapsed = timer.getElapsedTime();  // start the timer
+		remaining = elapsed.asSeconds();
+		boostBar.setPosition(player.X() - 40, 60);
+		innerBoost.setPosition(player.X() - 40, 40);
 		if (canBoost == true)
 		{
 			go = true;
 		}
 
-	boostBar.setPosition(player.X() - 600, 60);
-	innerBoost.setPosition(player.X() - 600, 60);
-	innerBoost.setScale(increase, 1);
+		boostBar.setPosition(player.X() - 600, 60);
+		innerBoost.setPosition(player.X() - 600, 60);
+		innerBoost.setScale(increase, 1);
 
-	if (remaining >= 1)
-	{
-		if (boost < maxBoost && canBoost == false)
+		if (remaining >= 1)
 		{
-			if (increase < 16)
+			if (boost < maxBoost && canBoost == false)
 			{
-				increase = increase + 1;
+				if (increase < 16)
+				{
+					increase = increase + 1;
+				}
+				boost = boost + remaining;
 			}
-			boost = boost + remaining;
-		}
 
-		if (boost > minBoost && canBoost == true && go == true)
-		{
-			if (increase > 0)
+			if (boost > minBoost && canBoost == true && go == true)
 			{
-				increase -= 4;
+				if (increase > 0)
+				{
+					increase -= 2;
+				}
+				boost -= 2;
+				moveAmount = 9;
+				player.updateSpeed = 9.0f;
 			}
-			boost -= 4;
-			moveAmount = 9;
-			player.updateSpeed = 9.0f;
+			if (boost <= minBoost)
+			{
+				increase = 0;
+				go = false;
+				canBoost = false;
+				moveAmount = 5;
+				player.updateSpeed = 4.9f;
+			}
+			timer.restart();
 		}
-		if (boost <= minBoost)
-		{
-			increase = 0;
-			go = false;
-			canBoost = false;
-			moveAmount = 5;
-			player.updateSpeed = 4.9f;
-		}
-		timer.restart();
 	}
 }
 

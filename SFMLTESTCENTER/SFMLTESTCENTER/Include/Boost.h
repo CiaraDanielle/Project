@@ -8,7 +8,7 @@ class Boost
 {
 public:
 	Boost();
-	void Update(Player &player, int &moveAmount);
+	void Update(Player &player, int &moveAmount, GameStates &state);
 	void Draw(sf::RenderWindow &window, GameStates &gameState);
 	void CanBoost(); 
 	bool canBoost = false;

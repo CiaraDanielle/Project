@@ -4,6 +4,7 @@
 #include <SFML\Graphics.hpp>
 #include "Include\GameState.h"
 #include "Include\Player.h"
+#include "Sound.h"
 
 
 class Menu
@@ -19,14 +20,13 @@ public:
 	void MoveUp(GameStates state);
 	void MoveDown(GameStates state);
 	void CheckMenuState(float width, float height, GameStates state);
-	void updateGameOptions(int lvl, int numberOfWaves);
-	void updateSoundOptions(bool &mute, int &volume);
 	void ScrollBackGround(GameStates state, sf::RenderWindow &window);
 	void CustomizePlayer(GameStates state, sf::RenderWindow& window, sf::Event event, Player &player);
-
+	void MoveLeft(GameStates &state, Sound &sound);
+	void MoveRight(GameStates &state, Sound &sound);
 	//will be used for the controller later to change the menu's
 	int getPressedItem() { return m_selectedButtonIndex; };
-
+	float speed = -5.0f;
 
 private:
 
@@ -46,6 +46,9 @@ private:
 	float moveX = 0;
 	float moveTwo = 0;
 	int colorNum = 0;
+	int leftpressed = -1;
+	int rightpressed = -1;
+
 	bool leftPressed = false; 
 	bool left = false;
 	bool rightPressed = false; 
