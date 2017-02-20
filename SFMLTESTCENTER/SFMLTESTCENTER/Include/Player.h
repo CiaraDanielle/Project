@@ -40,7 +40,6 @@ private:
 	float actualDistance = 0;
 	float linePosY = 720;
 	float linePosX = 200;
-	sf::Vector2f acceleration;
 	sf::Vector2f velocity;
 	sf::Vector2f position;
 	float pixelToMeters = 100.0f;
@@ -49,7 +48,6 @@ private:
 	int pos = 720;
 	float distance;
 	int angle = 50;
-	int count = 0; 
 	const float FPS = 60.0f;
 	const sf::Time timePerFrame = sf::seconds(1.0f / 60.0f);
 	sf::Time timeSinceLastUpdate = sf::Time::Zero;

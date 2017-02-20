@@ -24,6 +24,6 @@ private:
 	const int minBoost = 0;
 	int boost = 0;
 	bool go = false;
-	int increase = 1;
+	int increase = 16;
 };
 

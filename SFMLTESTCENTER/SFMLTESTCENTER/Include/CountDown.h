@@ -12,7 +12,7 @@ public:
 	void Update(Player &player, GameStates &state);
 	void Draw(sf::RenderWindow &window, GameStates &gameState);
 	void Reset();
-	int counter = 310;
+	int counter = 395;
 	int remaining = 0;
 	int GetTimer();
 

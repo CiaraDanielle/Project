@@ -56,16 +56,7 @@ void Button::setButtonPositions(float width, float height, GameStates state) //s
 		buttons[3].setPosition(sf::Vector2f(-500, 0));
 
 	}
-	else if (state == GameStates::Pause) //pause menu
-	{
-		buttons[0].setPosition(sf::Vector2f(width / 2 - 100, height / 4 * 1 + 80));
 
-		buttons[1].setPosition(sf::Vector2f((width / 2 - 90), height / 4 * 2 + 30));
-
-		buttons[2].setPosition(sf::Vector2f(-500, 0));
-
-		buttons[3].setPosition(sf::Vector2f(-500, 0));
-	}
 }
 
 void Button::setButtonSize(GameStates state) //sets the size of the buttons on screen depending on the state of the game
@@ -95,12 +86,6 @@ void Button::setButtonSize(GameStates state) //sets the size of the buttons on s
 		buttons[1].setScale(0.5, 1);
 	}
 
-	else if (state == GameStates::Pause) //pause menu
-	{
-		buttons[0].setScale(0.5, 1);
-
-		buttons[1].setScale(0.4, 1);
-	}
 }
 
 void Button::draw(sf::RenderWindow &window, GameStates state) //draws buttons on screen
@@ -183,17 +168,6 @@ void Button::setButtonScaleUp(GameStates state) //sets the scale sizes for each 
 		}
 	}
 
-	else if (state == GameStates::Pause) //pause menu
-	{
-		if (m_selectedButtonIndex == 0)
-		{
-			buttons[0].setScale(0.5, 1.1);
-		}
-		if (m_selectedButtonIndex == 1)
-		{
-			buttons[1].setScale(0.5, 1.1);
-		}
-	}
 }
 
 void Button::setButtonScaleDown(GameStates state) //sets the buttons back to their original size
@@ -244,15 +218,4 @@ void Button::setButtonScaleDown(GameStates state) //sets the buttons back to the
 		}
 	}
 
-	else if (state == GameStates::Pause) //pause menu
-	{
-		if (m_selectedButtonIndex == 0)
-		{
-			buttons[0].setScale(0.45, 1);
-		}
-		if (m_selectedButtonIndex == 1)
-		{
-			buttons[1].setScale(0.4, 1);
-		}
-	}
 }

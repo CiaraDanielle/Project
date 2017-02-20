@@ -3,17 +3,12 @@
 
 enum class GameStates
 {
-	Intro,
-	Splash,
 	MainMenu,
 	Play,
-	Pause,
-	Credits,
 	GameWin,
 	Customise,
 	Sound,
 	GameLose,
-	GameRestart
 };
 
 #endif

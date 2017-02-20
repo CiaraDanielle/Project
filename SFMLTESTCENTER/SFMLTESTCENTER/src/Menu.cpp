@@ -89,40 +89,6 @@ Menu::Menu(float width, float height, GameStates state)
 
 
 	}
-	else if (state == GameStates::Pause) //pause menu
-	{
-		buttonText[0].setFont(buttonFont);
-		buttonText[0].setString("Resume");
-		buttonText[0].setPosition(sf::Vector2f(width / 2 - 70, height / 4 * 1 + 100));
-
-
-		buttonText[1].setFont(buttonFont);
-		buttonText[1].setString("Quit");
-		buttonText[1].setPosition(sf::Vector2f((width / 2 - 50), height / 4 * 2 + 50));
-
-		buttonText[2].setFont(buttonFont);
-		buttonText[2].setString("");
-		buttonText[2].setPosition(sf::Vector2f((width / 2 - 25), height / 4 * 3 - 180));
-
-		buttonText[3].setFont(buttonFont);
-		buttonText[3].setString(""); //will change due to difficulty controller later
-		buttonText[3].setPosition(sf::Vector2f(width / 2 + 150, height / 4 * 1 + 50));
-
-
-		buttonText[4].setFont(buttonFont);
-		buttonText[4].setString(""); //will need change due to difficulty controller
-		buttonText[4].setPosition(sf::Vector2f((width / 2 + 190), height / 4 * 2 + 70));
-
-		buttonText[5].setFont(buttonFont);
-		buttonText[5].setString(""); //will need change due to sound controller
-		buttonText[5].setPosition(sf::Vector2f(width / 2 + 150, height / 4 * 3 - 180));
-
-
-		//set what position the buttons will be depending on the game state
-		thisButton.setButtonPositions(width, height, state);
-		thisButton.setButtonSize(state);
-
-	}
 
 
 	thisButton.m_selectedButtonIndex = 0;
@@ -374,57 +340,16 @@ void Menu::CheckMenuState(float width, float height, GameStates state) //checks 
 		thisButton.setButtonPositions(width, height, state);
 		thisButton.setButtonSize(state);
 	}
-	else if (state == GameStates::Pause) //pause menu
-	{
-		m_selectedButtonIndex = 0;
-		thisButton.m_selectedButtonIndex = 0;
-
-		buttonText[0].setFont(buttonFont);
-		buttonText[0].setString("Resume");
-		buttonText[0].setCharacterSize(35);
-		buttonText[0].setFillColor(sf::Color::Yellow);
-		buttonText[0].setPosition(sf::Vector2f(width / 2 - 70, height / 4 * 1 + 100));
-
-
-		buttonText[1].setFont(buttonFont);
-		buttonText[1].setString("Quit");
-		buttonText[1].setCharacterSize(30);
-		buttonText[1].setFillColor(sf::Color::White);
-		buttonText[1].setPosition(sf::Vector2f((width / 2 - 50), height / 4 * 2 + 50));
-
-		buttonText[2].setFont(buttonFont);
-		buttonText[2].setString("");
-		buttonText[2].setPosition(sf::Vector2f((width / 2 - 25), height / 4 * 3 - 180));
-
-		buttonText[3].setFont(buttonFont);
-		buttonText[3].setString(""); //will change due to difficulty controller later
-		buttonText[3].setPosition(sf::Vector2f(width / 2 + 150, height / 4 * 1 + 50));
-
-
-		buttonText[4].setFont(buttonFont);
-		buttonText[4].setString(""); //will need change due to difficulty controller
-		buttonText[4].setPosition(sf::Vector2f((width / 2 + 190), height / 4 * 2 + 70));
-
-		buttonText[5].setFont(buttonFont);
-		buttonText[5].setString(""); //will need change due to sound controller
-		buttonText[5].setPosition(sf::Vector2f(width / 2 + 150, height / 4 * 3 - 180));
-
-
-		//set what position the buttons will be depending on the game state
-		thisButton.setButtonPositions(width, height, state);
-		thisButton.setButtonSize(state);
-
-	}
 }
 void Menu::MoveLeft(GameStates &state, Sound &sound)
 {
 	leftpressed++;
 	if (state == GameStates::Sound)
 	{
-		if (m_selectedButtonIndex == 0)
+		if (m_selectedButtonIndex == 1)
 		{
-			buttonText[3].setFillColor(sf::Color::Yellow);
-			buttonText[2].setFillColor(sf::Color::White);
+			buttonText[4].setFillColor(sf::Color::Yellow);
+			buttonText[5].setFillColor(sf::Color::White);
 			if (leftPressed == 0)
 			{
 				sound.muteMusic = false;
@@ -432,10 +357,10 @@ void Menu::MoveLeft(GameStates &state, Sound &sound)
 				rightpressed = -1;
 			}
 		}
-		if (m_selectedButtonIndex == 1)
+		if (m_selectedButtonIndex == 0)
 		{
-			buttonText[4].setFillColor(sf::Color::Yellow);
-			buttonText[5].setFillColor(sf::Color::White);
+			buttonText[3].setFillColor(sf::Color::Yellow);
+			buttonText[2].setFillColor(sf::Color::White);
 			if (leftPressed == 0)
 			{
 				sound.muteSFX = false;
@@ -451,10 +376,10 @@ void Menu::MoveRight(GameStates &state, Sound &sound)
 	rightpressed++;
 	if (state == GameStates::Sound)
 	{
-		if (m_selectedButtonIndex == 0)
+		if (m_selectedButtonIndex == 1)
 		{ 
-			buttonText[3].setFillColor(sf::Color::White);
-			buttonText[2].setFillColor(sf::Color::Yellow);
+			buttonText[4].setFillColor(sf::Color::White);
+			buttonText[5].setFillColor(sf::Color::Yellow);
 			if (rightpressed == 0)
 			{
 				sound.muteMusic = true;
@@ -462,11 +387,11 @@ void Menu::MoveRight(GameStates &state, Sound &sound)
 				rightpressed = -1;
 			}
 		}
-		if (m_selectedButtonIndex == 1)
+		if (m_selectedButtonIndex == 0)
 		{
 			
-			buttonText[4].setFillColor(sf::Color::White);
-			buttonText[5].setFillColor(sf::Color::Yellow);
+			buttonText[3].setFillColor(sf::Color::White);
+			buttonText[2].setFillColor(sf::Color::Yellow);
 
 			if (rightpressed == 0)
 			{
@@ -491,18 +416,6 @@ void Menu::MoveUp(GameStates state)
 		}
 	}
 
-	if (state == GameStates::Pause) //main menu
-	{
-		if (m_selectedButtonIndex - 1 >= 0)
-		{
-			buttonText[m_selectedButtonIndex].setCharacterSize(30);
-			buttonText[m_selectedButtonIndex].setFillColor(sf::Color::White);
-			m_selectedButtonIndex--;
-			buttonText[m_selectedButtonIndex].setFillColor(sf::Color::Yellow);
-			buttonText[m_selectedButtonIndex].setCharacterSize(35);
-			thisButton.ButtonScaleUp(state);
-		}
-	}
 
 	if (state == GameStates::Sound) //main menu
 	{
@@ -536,19 +449,6 @@ void Menu::MoveDown(GameStates state) {
 	if (state == GameStates::MainMenu) //main menu
 	{
 		if (m_selectedButtonIndex + 1 < 4)
-		{
-			buttonText[m_selectedButtonIndex].setCharacterSize(30);
-			buttonText[m_selectedButtonIndex].setFillColor(sf::Color::White);
-			m_selectedButtonIndex++;
-			buttonText[m_selectedButtonIndex].setFillColor(sf::Color::Yellow);
-			buttonText[m_selectedButtonIndex].setCharacterSize(35);
-			thisButton.ButtonScaleDown(state);
-		}
-	}
-
-	if (state == GameStates::Pause) //Pause menu
-	{
-		if (m_selectedButtonIndex + 1 < 2)
 		{
 			buttonText[m_selectedButtonIndex].setCharacterSize(30);
 			buttonText[m_selectedButtonIndex].setFillColor(sf::Color::White);

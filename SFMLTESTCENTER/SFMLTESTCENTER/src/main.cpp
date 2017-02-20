@@ -69,13 +69,19 @@ int main()
 					sound.PlayMenuButton();
 					break;
 				case sf::Keyboard::Right:
-					menu.CustomizePlayer(m_GameStates,*window,event,player);
+					if (m_GameStates == GameStates::Customise)
+					{
+						menu.CustomizePlayer(m_GameStates, *window, event, player);
+					}
 					if (m_GameStates == GameStates::Play && level != LevelStates::Level1)
 					{
 						boost.CanBoost();
 					}
-					sound.PlayMenuButton();
-					menu.MoveRight(m_GameStates, sound);
+					if (m_GameStates == GameStates::Sound)
+					{
+						sound.PlayMenuButton();
+						menu.MoveRight(m_GameStates, sound);
+					}
 					break;
 				case sf::Keyboard::Num1:
 					level = LevelStates::Level1;
@@ -184,7 +190,6 @@ int main()
 			sound.StopLevel1Music();
 			sound.StopLevel2Music();
 			sound.StopLevel3Music();
-			countDown.Reset();
 		}
 		window->clear();
 		if (m_GameStates == GameStates::Play)
@@ -194,7 +199,10 @@ int main()
 			window->draw(particles);
 			player.Draw(window,m_GameStates);
 			player.Update(window,sound);
-			boost.Update(player, moveAmount, m_GameStates);
+			if (level != LevelStates::Level1)
+			{
+				boost.Update(player, moveAmount, m_GameStates);
+			}
 			countDown.Update(player, m_GameStates);
 			main.setCenter(player.X(), 400);
 			window->setView(main);

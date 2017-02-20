@@ -25,7 +25,7 @@ void Controller::DPadMoveDown(GameStates &state, Menu& start, Sound &sound)
 	{
 			
 		start.MoveDown(state);
-		if (state == GameStates::MainMenu || state == GameStates::Pause || state == GameStates::Customise || state == GameStates::Sound)
+		if (state == GameStates::MainMenu || state == GameStates::Customise || state == GameStates::Sound)
 		{
 			// put in beep sound here
 			sound.PlayMenuButton();
@@ -45,7 +45,7 @@ void Controller::DPadMoveUp(GameStates &state, Menu& start, Sound &sound)
 	if (dPadUp && !dPadUpPress)
 	{
 		start.MoveUp(state);
-		if (state == GameStates::MainMenu || state == GameStates::Pause || state == GameStates::Customise || state == GameStates::Sound)
+		if (state == GameStates::MainMenu || state == GameStates::Customise || state == GameStates::Sound)
 		{
 			//put in beep sound here
 			sound.PlayMenuButton();
@@ -73,7 +73,7 @@ void Controller::DPadMoveRight(GameStates state, Menu& start, Sound &sound)
 		{
 			//sound.changeMusicOption(start.getPressedItem());
 		}
-		if (state == GameStates::MainMenu || state == GameStates::Pause || state == GameStates::Customise || state == GameStates::Sound)
+		if (state == GameStates::MainMenu || state == GameStates::Customise || state == GameStates::Sound)
 		{
 			//sound.playEffect();
 			sound.PlayMenuButton();
@@ -101,7 +101,7 @@ void Controller::DPadMoveLeft(GameStates state, Menu& start, Sound &sound)
 		{
 			//sound.changeVolume(start.getPressedItem());
 		}
-		if (state == GameStates::MainMenu || state == GameStates::Pause || state == GameStates::Customise || state == GameStates::Sound)
+		if (state == GameStates::MainMenu || state == GameStates::Customise || state == GameStates::Sound)
 		{
 			sound.PlayMenuButton();
 		}
@@ -122,18 +122,7 @@ void Controller::APressed(GameStates& state, Player &player,Menu& start, sf::Ren
 	if (a && !aPressed)
 	{
 
-		if (state == GameStates::Pause)
-		{
-			switch (start.getPressedItem())
-			{
-			case 0:
-				state = GameStates::Play;
-				break;
-			case 1:
-				return window.close();
-				break;
-			}
-		}
+
 		if (state == GameStates::MainMenu)
 		{
 			switch (start.getPressedItem())

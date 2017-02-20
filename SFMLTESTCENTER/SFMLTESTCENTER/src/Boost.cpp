@@ -18,8 +18,8 @@ Boost::~Boost()
 
 void Boost::Update(Player &player, int &moveAmount, GameStates &state)
 {
-	if (state == GameStates::Play)
-	{
+	//if (state == GameStates::Play)
+	//{
 		elapsed = timer.getElapsedTime();  // start the timer
 		remaining = elapsed.asSeconds();
 		boostBar.setPosition(player.X() - 40, 60);
@@ -43,7 +43,10 @@ void Boost::Update(Player &player, int &moveAmount, GameStates &state)
 				}
 				boost = boost + remaining;
 			}
-
+			if (boost > maxBoost)
+			{
+				boost = maxBoost;
+			}
 			if (boost > minBoost && canBoost == true && go == true)
 			{
 				if (increase > 0)
@@ -51,6 +54,7 @@ void Boost::Update(Player &player, int &moveAmount, GameStates &state)
 					increase -= 2;
 				}
 				boost -= 2;
+
 				moveAmount = 9;
 				player.updateSpeed = 9.0f;
 			}
@@ -62,9 +66,19 @@ void Boost::Update(Player &player, int &moveAmount, GameStates &state)
 				moveAmount = 5;
 				player.updateSpeed = 4.9f;
 			}
+			if (boost < 0)
+			{
+				boost = 0;
+				canBoost = false;
+			}
+			if (increase < 0)
+			{
+				increase = 0;
+				canBoost = false;
+			}
 			timer.restart();
 		}
-	}
+	//}
 }
 
 void Boost::Draw(sf::RenderWindow &window, GameStates &state)
@@ -78,8 +92,5 @@ void Boost::Draw(sf::RenderWindow &window, GameStates &state)
 
 void Boost::CanBoost()
 {
-	if (boost == maxBoost)  // 
-	{
-		canBoost = true;
-	}
+	canBoost = true;
 }
