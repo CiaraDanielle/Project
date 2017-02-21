@@ -1,42 +1,43 @@
 ﻿  AttemptsCount.cpp
   Boost.cpp
-src\Boost.cpp(24): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-src\Boost.cpp(34): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+src\Boost.cpp(32): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+src\Boost.cpp(42): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   Controller.cpp
-src\Controller.cpp(150): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-src\Controller.cpp(154): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-src\Controller.cpp(199): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-src\Controller.cpp(205): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+src\Controller.cpp(168): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+src\Controller.cpp(172): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+src\Controller.cpp(220): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+src\Controller.cpp(226): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
   CountDown.cpp
-src\CountDown.cpp(23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-src\CountDown.cpp(46): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-src\CountDown.cpp(47): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+src\CountDown.cpp(35): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+src\CountDown.cpp(58): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+src\CountDown.cpp(59): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   GameOver.cpp
   Map.cpp
   Menu.cpp
   Player.cpp
-src\Player.cpp(15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-src\Player.cpp(41): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-src\Player.cpp(48): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-src\Player.cpp(54): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-src\Player.cpp(94): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-src\Player.cpp(111): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-src\Player.cpp(115): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-src\Player.cpp(164): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
-src\Player.cpp(173): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+src\Player.cpp(18): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+src\Player.cpp(50): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+src\Player.cpp(60): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+src\Player.cpp(70): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+src\Player.cpp(113): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+src\Player.cpp(130): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+src\Player.cpp(134): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+src\Player.cpp(203): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+src\Player.cpp(219): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Sound.cpp
   main.cpp
-src\main.cpp(33): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-src\main.cpp(47): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-src\main.cpp(116): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-src\main.cpp(131): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-src\main.cpp(149): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-src\main.cpp(154): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+src\main.cpp(29): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+src\main.cpp(43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+src\main.cpp(112): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+src\main.cpp(127): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+src\main.cpp(145): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+src\main.cpp(150): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+src\main.cpp(174): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
 src\main.cpp(178): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-src\main.cpp(182): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   Generating code
-  24 of 2838 functions ( 0.8%) were compiled, the rest were copied from previous compilation.
+  26 of 2838 functions ( 0.9%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    42 functions had inline decision re-evaluated but remain unchanged
+    7 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   SFMLTESTCENTER.vcxproj -> C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\Release\3rdYearProject.exe
   SFMLTESTCENTER.vcxproj -> C:\Users\gameuser\Desktop\3rdYearProjcet\SFMLTESTCENTER\Release\3rdYearProject.pdb (Full PDB)

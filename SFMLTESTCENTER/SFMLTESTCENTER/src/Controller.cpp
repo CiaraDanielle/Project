@@ -1,11 +1,16 @@
 #include "Controller.h"
 
-
+//////////////////////////////////////////////////////////////////////////////////
+// The constructor
+//////////////////////////////////////////////////////////////////////////////////
 Controller::Controller()
 {
 	
 }
 
+//////////////////////////////////////////////////////////////////////////////////
+// Update method 
+//////////////////////////////////////////////////////////////////////////////////
 void Controller::Update(GameStates& state, Menu& start, sf::RenderWindow &window, Player &player, Boost &boost, LevelStates &level, Sound &sound)
 {
 	DPadMoveDown(state, start, sound);
@@ -17,7 +22,9 @@ void Controller::Update(GameStates& state, Menu& start, sf::RenderWindow &window
 	StartPressed(state,boost,level);
 }
 
-
+//////////////////////////////////////////////////////////////////////////////////
+// Pressing Down on the D Pad on the controller 
+//////////////////////////////////////////////////////////////////////////////////
 void Controller::DPadMoveDown(GameStates &state, Menu& start, Sound &sound)
 {
 	dPadDown = sf::Joystick::getAxisPosition(0, sf::Joystick::PovY) < -m_val;
@@ -39,6 +46,9 @@ void Controller::DPadMoveDown(GameStates &state, Menu& start, Sound &sound)
 	}
 }
 
+//////////////////////////////////////////////////////////////////////////////////
+// Pressing Up on the D Pad on the controller 
+//////////////////////////////////////////////////////////////////////////////////
 void Controller::DPadMoveUp(GameStates &state, Menu& start, Sound &sound)
 {
 	dPadUp = sf::Joystick::getAxisPosition(0, sf::Joystick::PovY) < m_val;
@@ -59,6 +69,9 @@ void Controller::DPadMoveUp(GameStates &state, Menu& start, Sound &sound)
 	}
 }
 
+//////////////////////////////////////////////////////////////////////////////////
+// Pressing Right on the D Pad on the controller 
+//////////////////////////////////////////////////////////////////////////////////
 void Controller::DPadMoveRight(GameStates state, Menu& start, Sound &sound)
 {
 	dPadRight = sf::Joystick::getAxisPosition(0, sf::Joystick::PovX) < m_val;
@@ -87,6 +100,9 @@ void Controller::DPadMoveRight(GameStates state, Menu& start, Sound &sound)
 	}
 }
 
+//////////////////////////////////////////////////////////////////////////////////
+// Pressing DLeft on the D Pad on the controller 
+//////////////////////////////////////////////////////////////////////////////////
 void Controller::DPadMoveLeft(GameStates state, Menu& start, Sound &sound)
 {
 	dPadLeft = sf::Joystick::getAxisPosition(0, sf::Joystick::PovX) < -m_val;
@@ -114,7 +130,9 @@ void Controller::DPadMoveLeft(GameStates state, Menu& start, Sound &sound)
 	}
 }
 
-
+//////////////////////////////////////////////////////////////////////////////////
+// Pressing A on the controller 
+//////////////////////////////////////////////////////////////////////////////////
 void Controller::APressed(GameStates& state, Player &player,Menu& start, sf::RenderWindow& window, Sound &sound, LevelStates &level)
 {
 	a = sf::Joystick::isButtonPressed(0, 0);
@@ -187,6 +205,9 @@ void Controller::APressed(GameStates& state, Player &player,Menu& start, sf::Ren
 
 }
 
+//////////////////////////////////////////////////////////////////////////////////
+// Pressing B on the controller 
+//////////////////////////////////////////////////////////////////////////////////
 void Controller::BPressed(GameStates& state, Menu& start, sf::RenderWindow& window, Sound &sound)
 {
 	b = sf::Joystick::isButtonPressed(0, 1);
@@ -212,6 +233,9 @@ void Controller::BPressed(GameStates& state, Menu& start, sf::RenderWindow& wind
 	}
 }
 
+//////////////////////////////////////////////////////////////////////////////////
+// Pressing Start on the controller 
+//////////////////////////////////////////////////////////////////////////////////
 void Controller::StartPressed(GameStates& state, Boost &boost, LevelStates &level)
 {
 	start = sf::Joystick::isButtonPressed(0, 7);

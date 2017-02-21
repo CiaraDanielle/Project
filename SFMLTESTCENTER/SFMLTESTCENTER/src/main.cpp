@@ -14,11 +14,7 @@
 #include "Include\Sound.h"
 
 using namespace std;
-float tileSizeY;
-float tileSizeX;
-int attempts = 0; 
 int moveAmount = 5; 
-int count = 0;
 
 
 int main()

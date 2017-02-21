@@ -1,27 +1,31 @@
 #include "Map.h"
 
 
-
+//////////////////////////////////////////////////////////////////////////////////
+// Constructor 
+//////////////////////////////////////////////////////////////////////////////////
 Map::Map() : m_ml(""), m_ml2(""), m_ml3("")
 {
 	m_ml.UpdateQuadTree(sf::FloatRect(0, 0, 1400, 800));
 	m_ml.Load("Level1.tmx");
 }
 
-
+//////////////////////////////////////////////////////////////////////////////////
+// Destructor
+//////////////////////////////////////////////////////////////////////////////////
 Map::~Map()
 {
 }
 
-
+//////////////////////////////////////////////////////////////////////////////////
+// Update method 
+//////////////////////////////////////////////////////////////////////////////////
 void Map::Update(Player &player, GameStates &state, LevelStates &level, AttemptsCount &count, CountDown &timer, Sound &sound, GameOver &overText)
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::N)) {
 		level = LevelStates::Level3;
 		CheckState(level);
 	}
-	const std::vector<tmx::MapLayer>& layers = m_ml.GetLayers();
-
 
 	if (level == LevelStates::Level1)
 	{
@@ -38,6 +42,9 @@ void Map::Update(Player &player, GameStates &state, LevelStates &level, Attempts
 	}
 }
 
+//////////////////////////////////////////////////////////////////////////////////
+// Check the level state Method 
+//////////////////////////////////////////////////////////////////////////////////
 void Map::CheckState(LevelStates &state)
 {
 	if (state == LevelStates::Level1)
@@ -55,6 +62,9 @@ void Map::CheckState(LevelStates &state)
 	}
 }
 
+//////////////////////////////////////////////////////////////////////////////////
+// Draw method 
+//////////////////////////////////////////////////////////////////////////////////
 void Map::Draw(sf::RenderWindow &window, LevelStates &level)
 {
 	if (level == LevelStates::Level1)
@@ -71,6 +81,9 @@ void Map::Draw(sf::RenderWindow &window, LevelStates &level)
 	}
 }
 
+//////////////////////////////////////////////////////////////////////////////////
+// Collision checker for level 1 method 
+//////////////////////////////////////////////////////////////////////////////////
 void Map::CollisionCheckLevel1(Player &player, GameStates &state, LevelStates &level, AttemptsCount &attemptCount, CountDown &timer, Sound &sound, GameOver &overText)
 {
 	int count = 0;
@@ -154,7 +167,7 @@ void Map::CollisionCheckLevel1(Player &player, GameStates &state, LevelStates &l
 				if (thirdCollision == true)
 				{
 					float y = squareRect.height;
-					player.GROUNDPOS = squareRect.top;
+					player.pos = squareRect.top;
 					if (player.X() < object->GetPosition().x + squareRect.width)
 					{
 						player.isMoving = false;
@@ -164,15 +177,18 @@ void Map::CollisionCheckLevel1(Player &player, GameStates &state, LevelStates &l
 			}
 		}
 
-		else if (player.GROUNDPOS < 720 && thirdCollision == false && count == 0)
+		else if (player.pos < 720 && thirdCollision == false && count == 0)
 		{
-			player.GROUNDPOS = 720;
+			player.pos = 720;
 			player.isMoving = true;
 			count = 1;
 		}
 	}
 }
 
+//////////////////////////////////////////////////////////////////////////////////
+// Collision checker for level 2 method 
+//////////////////////////////////////////////////////////////////////////////////
 void Map::CollisionCheckLevel2(Player &player, GameStates &state, LevelStates &level, AttemptsCount &attemptCount, CountDown &timer, Sound &sound, GameOver &overText)
 {
 	int count = 0;
@@ -246,7 +262,7 @@ void Map::CollisionCheckLevel2(Player &player, GameStates &state, LevelStates &l
 				if (thirdCollision == true)
 				{
 					float y = squareRect.height;
-					player.GROUNDPOS = squareRect.top;
+					player.pos = squareRect.top;
 					if (player.X() < object->GetPosition().x + squareRect.width)
 					{
 						player.isMoving = false;
@@ -256,15 +272,18 @@ void Map::CollisionCheckLevel2(Player &player, GameStates &state, LevelStates &l
 			}
 		}
 
-		else if (player.GROUNDPOS < 720 && thirdCollision == false && count == 0)
+		else if (player.pos < 720 && thirdCollision == false && count == 0)
 		{
-			player.GROUNDPOS = 720;
+			player.pos = 720;
 			player.isMoving = true;
 			count = 1;
 		}
 	}
 }
 
+//////////////////////////////////////////////////////////////////////////////////
+// Collision checker for level 3 method 
+//////////////////////////////////////////////////////////////////////////////////
 void Map::CollisionCheckLevel3(Player &player, GameStates &state, LevelStates &level, AttemptsCount &attemptCount, CountDown &timer, Sound &sound, GameOver &overText)
 {
 	int count = 0;
@@ -363,7 +382,7 @@ void Map::CollisionCheckLevel3(Player &player, GameStates &state, LevelStates &l
 				if (thirdCollision == true)
 				{
 					float y = squareRect.height;
-					player.GROUNDPOS = squareRect.top;
+					player.pos = squareRect.top;
 					if (player.X() < object->GetPosition().x + squareRect.width)
 					{
 						player.isMoving = false;
@@ -373,9 +392,9 @@ void Map::CollisionCheckLevel3(Player &player, GameStates &state, LevelStates &l
 			}
 		}
 
-		else if (player.GROUNDPOS < 720 && thirdCollision == false && count == 0)
+		else if (player.pos < 720 && thirdCollision == false && count == 0)
 		{
-			player.GROUNDPOS = 720;
+			player.pos = 720;
 			player.isMoving = true;
 			count = 1;
 		}

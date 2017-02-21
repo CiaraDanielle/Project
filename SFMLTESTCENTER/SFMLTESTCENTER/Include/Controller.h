@@ -14,7 +14,7 @@ public:
 	////////////////////////////////////////////////////////////
 	/// \brief Construct the controller  
 	///
-	/// \param Gamestates to know which screen you're on  
+	/// \param none
 	///
 	////////////////////////////////////////////////////////////
 	Controller();
@@ -52,12 +52,37 @@ public:
 	////////////////////////////////////////////////////////////
 	void DPadMoveDown(GameStates &state, Menu& start, Sound &sound);
 
+	////////////////////////////////////////////////////////////
+	/// \brief Pressing A on the controller 
+	///
+	/// \param game state to know which screen your on, a player object to jump. the menu to know when a button is pressed
+	/// the render window to sent to the menu, sound so to play a sound when jumping or on the menu, the level to know which level to load
+	////////////////////////////////////////////////////////////
 	void APressed(GameStates& state, Player &player, Menu& start, sf::RenderWindow& window, Sound &sound, LevelStates &level);
 
+	////////////////////////////////////////////////////////////
+	/// \brief Pressing B on the controller 
+	///
+	/// \param Gamestate to know which screen, Sound so you can 
+	/// move through it as well as Sound Manager and Menu also the render window
+	////////////////////////////////////////////////////////////
 	void BPressed(GameStates& state, Menu& start, sf::RenderWindow& window, Sound &sound);
 
+	////////////////////////////////////////////////////////////
+	/// \brief Update method: So instead of calling all the functions above
+	/// individually you can just call the update method
+	///
+	/// \param Gamestate to know which screen, Sound so you can 
+	/// move through it as well as Sound Manager and Menu 
+	/// a player object, a boost object and the levelstate 
+	////////////////////////////////////////////////////////////
 	void Update(GameStates& state, Menu& start, sf::RenderWindow &window, Player &player, Boost &boost, LevelStates &level, Sound &sound);
 
+	////////////////////////////////////////////////////////////
+	/// \brief Pressing start on the controller 
+	///
+	/// \param Gamestate to know which screen, boost to know can you, and level states 
+	////////////////////////////////////////////////////////////
 	void StartPressed(GameStates& state, Boost &boost, LevelStates &level);
 private:
 
@@ -85,14 +110,22 @@ private:
 	/// Boolean to know when down has been pressed 
 	bool dPadDownPress = false;
 
+	/// Getting the axis for A 
 	bool a = sf::Joystick::isButtonPressed(0, 0);
 
+	/// A boolean to see if A has been pressed 
 	bool aPressed = false;
 
+	/// Getting the axis for B
 	bool b = sf::Joystick::isButtonPressed(0, 1); 
+
+	/// Boolean to know when B has been pressed
 	bool bPressed = false; 
 
+	/// Getting the axis for the Start button
 	bool start = sf::Joystick::isButtonPressed(0, 7); 
+
+	/// Boolean to know when Start is pressed
 	bool startPressed = false; 
 
 	/// Constant value to use for the DPad axis detection 
